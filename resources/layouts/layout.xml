@@ -1,0 +1,16 @@
+<layout id="WatchFace">
+    <drawable class="Background" />
+    <label id="TimeLabel" x="center" y="center" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+    <label id="BatteryLabel" x="center" y="top" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+	<label id="StepsLabel" x="left" y="center" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_ORANGE"/>
+	<label id="DistanceLabel" x="center" y="bottom" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_ORANGE"/>
+	<label id="CaloriesLabel" x="right" y="center" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_GREEN"/>
+	<drawable class="StepsHistory">
+		<param name="color">Graphics.COLOR_LT_GRAY</param>
+		<param name="goalColor">Graphics.COLOR_BLUE</param>
+		<param name="y">80</param>
+		<param name="barHeight">30</param>
+		<param name="barWidth">8</param>
+		<param name="padding">4</param>
+	</drawable>
+</layout>
