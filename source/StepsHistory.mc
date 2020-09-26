@@ -5,7 +5,7 @@ using Toybox.Time.Gregorian;
 using Toybox.WatchUi as Ui;
 
 class StepsHistory extends Ui.Drawable {
-	hidden var _backgroundColor, _color, _goalColor;
+	hidden var _backgroundColor, _borderColor, _barColor, _goalColor, _dayColor;
 	hidden var _x, _y;
 	hidden var _barHeight, _barWidth, _padding, _border;
 	
@@ -15,8 +15,10 @@ class StepsHistory extends Ui.Drawable {
 		Drawable.initialize(params);
 		
 		_backgroundColor = params.get(:backgroundColor);
-		_color = params.get(:color);
+		_borderColor = params.get(:borderColor);
+		_barColor = params.get(:barColor);
 		_goalColor = params.get(:goalColor);
+		_dayColor = params.get(:dayColor);
 		_x = params.get(:x); // Optional
 		_y = params.get(:y); // Optional
 		_barHeight = params.get(:barHeight);
@@ -43,12 +45,13 @@ class StepsHistory extends Ui.Drawable {
 		
 		// If we got no _y param, center the bars vertically
 		var height = _barHeight + _padding + _border * 2;
+		var font = Ui.loadResource(Rez.Fonts.Tech16Font);		
 		if (_y == null) {
-			_y = (dc.getHeight() - height - 14) / 2;
+			_y = (dc.getHeight() - height - dc.getFontHeight(font)) / 2;
 		}
 		
 		// Draw background
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(_borderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[_x, _y + _padding],
 			[_x + _padding, _y],
@@ -70,8 +73,7 @@ class StepsHistory extends Ui.Drawable {
 			[_x + _border, _y + height - _border - _padding / 2]]);
 			
 		// Draw text for days
-		var font = Ui.loadResource(Rez.Fonts.Tech16Font);
-		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(_dayColor, Graphics.COLOR_TRANSPARENT);
 		for (var i = MAX_BARS - 1, x = _x + _border + _padding + _barWidth / 2; i >= 0; i -= 1, x += _barWidth + _padding) {
 			dc.drawText(x, _y + height, font, (date.day - i).format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
 		}
@@ -102,13 +104,14 @@ class StepsHistory extends Ui.Drawable {
 			size = history.size();
 		}
 
+		dc.setPenWidth(2);
 		for (var i = size - 1, x = _x + _border + _padding; i >= 0; i -= 1, x += _barWidth + _padding) {
 			if (history[i] != null) {
 				if (history[i].steps != null) {						
 					if (history[i].steps >= history[i].stepGoal) {
 						dc.setColor(_goalColor, Graphics.COLOR_TRANSPARENT);
 					} else {
-						dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+						dc.setColor(_barColor, Graphics.COLOR_TRANSPARENT);
 					}					
 					var stepHeight = _barHeight * history[i].steps / topSteps; 
         			dc.fillRectangle(x, _y + _border + _padding + _barHeight - stepHeight, _barWidth, stepHeight);		
@@ -128,7 +131,7 @@ class StepsHistory extends Ui.Drawable {
 		if (activity.steps >= activity.stepGoal) {
 			dc.setColor(_goalColor, Graphics.COLOR_TRANSPARENT);
 		} else {
-			dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(_barColor, Graphics.COLOR_TRANSPARENT);
 		}					
 		var stepHeight = _barHeight * activity.steps / topSteps;
 		var x = _x + width - _barWidth - _padding - _border;

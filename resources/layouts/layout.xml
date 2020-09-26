@@ -1,26 +1,45 @@
 <layout id="WatchFace">
     <drawable class="Background" />
-	<bitmap id="StepIconWhite" filename="../drawables/step_icon.png" x="center" y="70%">
-        <palette disableTransparency="false">
-            <color>FFFFFF</color>
-        </palette>
-    </bitmap>    
-    <label id="TimeLabel" x="center" y="10%" font="@Fonts.Tech64Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
-    <label id="BatteryLabel" x="center" y="top" font="@Fonts.Tech32Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
-	<label id="StepsLabel" x="left" y="center" font="@Fonts.Tech16Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_ORANGE"/>
-	<label id="DistanceLabel" x="center" y="bottom" font="@Fonts.Tech48Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_ORANGE"/>
-	<label id="CaloriesLabel" x="60%" y="90%" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_GREEN"/>
 	<drawable class="Ornaments">
 		<param name="color">Graphics.COLOR_WHITE</param>
+		<param name="topFromCenter">62</param>
+		<param name="bottomFromCenter">58</param>
+	</drawable>
+	<drawable class="Steps">
+		<param name="color">Graphics.COLOR_WHITE</param>		
+	</drawable>
+	<drawable class="HeartRate">
+		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
+		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
+		<param name="textColor">Graphics.COLOR_BLACK</param>
+		<param name="heartColor">Graphics.COLOR_RED</param>
+		<param name="x">4</param>
+		<param name="y">95</param>
+		<param name="width">100</param>
+		<param name="height">87</param>
+		<param name="border">2</param>
 	</drawable>
 	<drawable class="StepsHistory">
+		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
 		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
-		<param name="color">Graphics.COLOR_LT_GRAY</param>
+		<param name="barColor">Graphics.COLOR_LT_GRAY</param>
 		<param name="goalColor">Graphics.COLOR_ORANGE</param>
+		<param name="dayColor">Graphics.COLOR_WHITE</param>
 		<param name="x">110</param>
 		<param name="barHeight">30</param>
 		<param name="barWidth">15</param>
 		<param name="padding">5</param>
 		<param name="border">2</param>
+	</drawable>
+	<drawable class="Time">
+		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
+		<param name="backgroundColor">Graphics.COLOR_WHITE</param>	
+		<param name="color">Graphics.COLOR_BLACK</param>
+		<param name="y">178</param>
+		<param name="height">76</param>		
+		<param name="border">2</param>
+	</drawable>
+	<drawable class="Calories">
+		<param name="color">Graphics.COLOR_WHITE</param>		
 	</drawable>
 </layout>

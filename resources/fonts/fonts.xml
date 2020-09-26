@@ -1,7 +1,9 @@
 <fonts>
-	<font id="Tech12Font" filename="technology_12.fnt" antialias="true" filter="0123456789:"/>
-	<font id="Tech16Font" filename="technology_16.fnt" antialias="true" filter="0123456789:"/>
-	<font id="Tech32Font" filename="technology_32.fnt" antialias="true" filter="0123456789:"/>
-	<font id="Tech48Font" filename="technology_48.fnt" antialias="true" filter="0123456789:"/>
-	<font id="Tech64Font" filename="technology_64.fnt" antialias="true" filter="0123456789:"/>
+	<font id="IconsFont" filename="icons.fnt" antialias="true"/>
+	<font id="Tech16Font" filename="technology_16.fnt" antialias="true"/>
+	<font id="Tech18Font" filename="technology_18.fnt" antialias="true"/>
+	<font id="Tech24Font" filename="technology_24.fnt" antialias="true" filter="0123456789"/>
+	<font id="Tech32Font" filename="technology_32.fnt" antialias="true" filter="0123456789:-"/>
+	<font id="Tech48Font" filename="technology_48.fnt" antialias="true" filter="0123456789:-"/>
+	<font id="Tech64Font" filename="technology_64.fnt" antialias="true" filter="0123456789:-"/>
 </fonts>

@@ -2,25 +2,25 @@ using Toybox.WatchUi as Ui;
 
 class Ornaments extends Ui.Drawable {
 	hidden var _color;
+	hidden var _topFromCenter;
+	hidden var _bottomFromCenter;
 	
 	function initialize(params) {
 		Drawable.initialize(params);
 		
 		_color = params.get(:color);
+		_topFromCenter = params.get(:topFromCenter);
+		_bottomFromCenter = params.get(:bottomFromCenter);
 	}
 	
 	function draw(dc) {
 		var height = dc.getHeight();
 		var width = dc.getWidth();
-		
-		if(dc has :setAntiAlias) {
-			dc.setAntiAlias(true);
-		}
-		
+				
 		// Main top line
 		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
 		var x = 0;
-		var y = height / 2 - 62;
+		var y = height / 2 - _topFromCenter;
 		dc.fillPolygon([
 			[x + 75, y],
 			[x + 80, y],
@@ -60,7 +60,7 @@ class Ornaments extends Ui.Drawable {
 		]);
 		
 		// Main bottom line
-		y = height / 2 + 58;
+		y = height / 2 + _bottomFromCenter;
 		dc.fillPolygon([
 			[x + 75, y],
 			[x + 80, y],
