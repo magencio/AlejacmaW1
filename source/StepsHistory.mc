@@ -3,15 +3,16 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class StepsHistory extends Ui.Drawable {
-	hidden var _color, _goalColor;
+	hidden var _backgroundColor, _color, _goalColor;
 	hidden var _x, _y;
-	hidden var _barHeight, _barWidth, _padding;
+	hidden var _barHeight, _barWidth, _padding, _border;
 	
 	const MAX_BARS = 8;
 	
 	function initialize(params) {
 		Drawable.initialize(params);
 		
+		_backgroundColor = params.get(:backgroundColor);
 		_color = params.get(:color);
 		_goalColor = params.get(:goalColor);
 		_x = params.get(:x); // Optional
@@ -19,6 +20,7 @@ class StepsHistory extends Ui.Drawable {
 		_barHeight = params.get(:barHeight);
 		_barWidth = params.get(:barWidth);
 		_padding = params.get(:padding);
+		_border = params.get(:border);
 	}
 
 	function draw(dc) {
@@ -30,6 +32,32 @@ class StepsHistory extends Ui.Drawable {
 
 		var activity = ActivityMonitor.getInfo();
 		
+		// If we got no _x param, center the bars horizontally
+		var width = MAX_BARS * _barWidth + (MAX_BARS + 1) * _padding + _border * 2;
+		if (_x == null) {
+			_x = (dc.getWidth() - width) / 2;
+		}
+		
+		// If we got no _y param, center the bars vertically
+		var height = _barHeight + _padding + _border * 2; 
+		if (_y == null) {
+			_y = (dc.getHeight() - height) / 2;
+		}
+		
+		// Draw background
+		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+		dc.fillPolygon([
+			[_x, _y],
+			[_x + width - 1, _y],
+			[_x + width - 1, _y + height - 1],
+			[_x, _y + height - 1]]);
+		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.fillPolygon([
+			[_x + _border, _y + _border],
+			[_x + width - _border - 1, _y + _border],
+			[_x + width - _border - 1, _y + height - _border - 1],
+			[_x + _border, _y + height - _border - 1]]);
+
 		// Number of steps represented by the top of the bars
 		var topSteps = 0;
 		for (var i = 0; i < history.size(); i += 1) {
@@ -49,30 +77,14 @@ class StepsHistory extends Ui.Drawable {
 		if (activity.stepGoal > topSteps) {
 			topSteps = activity.stepGoal;
 		}
-		
-		// If we got no _x param, center the bars horizontally
-		if (_x == null) {
-			_x = (dc.getWidth() - MAX_BARS * _barWidth - (MAX_BARS - 1) * _padding) / 2;
-		}
-		
-		// If we got no _y param, center the bars vertically
-		if (_y == null) {
-			_y = (dc.getHeight() - _barHeight) / 2;
-		}		
-		
-		// Draw background bars
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-		for (var i = 0, x = _x; i < 8; i += 1, x +=_barWidth + _padding) {
-			dc.drawRectangle(x, _y, _barWidth, _barHeight);					
-		}
-		
+				
 		// Draw history bars
 		var size = MAX_BARS - 1;
 		if (history.size() < size) {
 			size = history.size();
 		}
 
-		for (var i = size - 1, x = _x; i >= 0; i -= 1, x += _barWidth + _padding) {
+		for (var i = size - 1, x = _x + _border + _padding; i >= 0; i -= 1, x += _barWidth + _padding) {
 			if (history[i] != null) {
 				if (history[i].steps != null) {						
 					if (history[i].steps >= history[i].stepGoal) {
@@ -81,13 +93,13 @@ class StepsHistory extends Ui.Drawable {
 						dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
 					}					
 					var stepHeight = _barHeight * history[i].steps / topSteps; 
-        			dc.fillRectangle(x, _y + _barHeight - stepHeight, _barWidth, stepHeight);		
+        			dc.fillRectangle(x, _y + _border + _padding + _barHeight - stepHeight, _barWidth, stepHeight);		
         			
         			// Draw history goal line
 					if (history[i].steps < history[i].stepGoal) {
-						var goalHeight = _barHeight * history[i].stepGoal / topSteps;
-						var y = _y + _barHeight - goalHeight;
 						dc.setColor(_goalColor, Graphics.COLOR_TRANSPARENT);
+						var goalHeight = _barHeight * history[i].stepGoal / topSteps;
+						var y = _y + _border + _padding + _barHeight - goalHeight;
 						dc.drawLine(x, y, x + _barWidth, y);
 					}				        						
 				}
@@ -101,14 +113,14 @@ class StepsHistory extends Ui.Drawable {
 			dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
 		}					
 		var stepHeight = _barHeight * activity.steps / topSteps;
-		var x = _x + (MAX_BARS - 1) * (_barWidth + _padding);
-		dc.fillRectangle(x, _y + _barHeight - stepHeight, _barWidth, stepHeight);
+		var x = _x + width - _barWidth - _padding - _border;
+		dc.fillRectangle(x, _y + _border + _padding + _barHeight - stepHeight, _barWidth, stepHeight);
 		
 		// Draw today's goal line
 		if (activity.steps < activity.stepGoal) {
-			var goalHeight = _barHeight * activity.stepGoal / topSteps;
-			var y = _y + _barHeight - goalHeight;
 			dc.setColor(_goalColor, Graphics.COLOR_TRANSPARENT);
+			var goalHeight = _barHeight * activity.stepGoal / topSteps;
+			var y = _y + _border + _padding + _barHeight - goalHeight;
 			dc.drawLine(x, y, x + _barWidth, y);
 		}			
 	}

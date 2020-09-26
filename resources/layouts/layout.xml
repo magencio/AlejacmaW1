@@ -6,11 +6,13 @@
 	<label id="DistanceLabel" x="center" y="bottom" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_ORANGE"/>
 	<label id="CaloriesLabel" x="right" y="center" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_GREEN"/>
 	<drawable class="StepsHistory">
+		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
 		<param name="color">Graphics.COLOR_LT_GRAY</param>
 		<param name="goalColor">Graphics.COLOR_BLUE</param>
 		<param name="y">80</param>
 		<param name="barHeight">30</param>
-		<param name="barWidth">8</param>
+		<param name="barWidth">10</param>
 		<param name="padding">4</param>
+		<param name="border">2</param>
 	</drawable>
 </layout>
