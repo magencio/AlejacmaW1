@@ -1,5 +1,7 @@
 using Toybox.ActivityMonitor;
 using Toybox.System;
+using Toybox.Time;
+using Toybox.Time.Gregorian;
 using Toybox.WatchUi as Ui;
 
 class StepsHistory extends Ui.Drawable {
@@ -31,6 +33,7 @@ class StepsHistory extends Ui.Drawable {
 		}
 
 		var activity = ActivityMonitor.getInfo();
+        var date = Gregorian.info(Time.now(), Time.FORMAT_LONG);
 		
 		// If we got no _x param, center the bars horizontally
 		var width = MAX_BARS * _barWidth + (MAX_BARS + 1) * _padding + _border * 2;
@@ -39,24 +42,39 @@ class StepsHistory extends Ui.Drawable {
 		}
 		
 		// If we got no _y param, center the bars vertically
-		var height = _barHeight + _padding + _border * 2; 
+		var height = _barHeight + _padding + _border * 2;
 		if (_y == null) {
-			_y = (dc.getHeight() - height) / 2;
+			_y = (dc.getHeight() - height - 14) / 2;
 		}
 		
 		// Draw background
 		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
-			[_x, _y],
-			[_x + width - 1, _y],
-			[_x + width - 1, _y + height - 1],
-			[_x, _y + height - 1]]);
+			[_x, _y + _padding],
+			[_x + _padding, _y],
+			[_x + width - _padding - 1, _y],
+			[_x + width - 1, _y + _padding],
+			[_x + width - 1, _y + height - _padding / 2 - 1],
+			[_x + width - _padding / 2 - 1, _y + height - 1],
+			[_x + _padding / 2, _y + height - 1],
+			[_x, _y + height - _padding / 2 - 1]]);
 		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
-			[_x + _border, _y + _border],
-			[_x + width - _border - 1, _y + _border],
-			[_x + width - _border - 1, _y + height - _border - 1],
-			[_x + _border, _y + height - _border - 1]]);
+			[_x + _border, _y + _border + _padding - 1],
+			[_x + _border + _padding - 1, _y + _border],
+			[_x + width - _border - _padding - 1, _y + _border],
+			[_x + width - _border - 1, _y + _border + _padding],
+			[_x + width - _border - 1, _y + height - _border - _padding / 2 - 1],
+			[_x + width - _border - _padding / 2 - 1, _y + height - _border - 1],
+			[_x + _border + _padding / 2 - 1, _y + height - _border - 1],
+			[_x + _border, _y + height - _border - _padding / 2]]);
+			
+		// Draw text for days
+		var font = Ui.loadResource(Rez.Fonts.Tech16Font);
+		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
+		for (var i = MAX_BARS - 1, x = _x + _border + _padding + _barWidth / 2; i >= 0; i -= 1, x += _barWidth + _padding) {
+			dc.drawText(x, _y + height, font, (date.day - i).format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
+		}
 
 		// Number of steps represented by the top of the bars
 		var topSteps = 0;
