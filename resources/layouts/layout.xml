@@ -13,9 +13,9 @@
 		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
 		<param name="textColor">Graphics.COLOR_BLACK</param>
 		<param name="heartColor">Graphics.COLOR_RED</param>
-		<param name="x">4</param>
+		<param name="x">0</param>
 		<param name="y">95</param>
-		<param name="width">100</param>
+		<param name="width">104</param>
 		<param name="height">87</param>
 		<param name="border">2</param>
 	</drawable>
@@ -36,7 +36,7 @@
 		<param name="backgroundColor">Graphics.COLOR_WHITE</param>	
 		<param name="color">Graphics.COLOR_BLACK</param>
 		<param name="y">178</param>
-		<param name="height">76</param>		
+		<param name="height">70</param>		
 		<param name="border">2</param>
 	</drawable>
 	<drawable class="Calories">

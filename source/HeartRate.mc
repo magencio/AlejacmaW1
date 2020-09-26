@@ -36,25 +36,21 @@ class HeartRate extends Ui.Drawable {
 		// Draw background
 		dc.setColor(_borderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
-			[_x, _y + 10],
-			[_x + 5, _y],
-			[_x + width - 18, _y],
-			[_x + width - 1, _y + 14],
-			[_x + width - 1, _y + height - 15],
-			[_x + width - 18, _y + height - 1],
-			[_x + 5, _y + height - 1],
-			[_x, _y + height - 11]
+			[_x, _y],
+			[_x + _width - 18, _y],
+			[_x + _width - 1, _y + 14],
+			[_x + _width - 1, _y + _height - 15],
+			[_x + _width - 18, _y + _height - 1],
+			[_x, _y + height - 1]
 		]);
 		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
-			[_x + _border, _y + _border + 10],
-			[_x + _border + 5, _y + _border],
-			[_x + width - _border - 18, _y + _border],
-			[_x + width - _border - 1, _y + _border + 14],
-			[_x + width - _border - 1, _y + height - _border - 14],
-			[_x + width - _border - 17, _y + height - _border - 1],
-			[_x + _border + 5, _y + height - _border - 1],
-			[_x + _border, _y + height - _border - 11]
+			[_x, _y + _border],
+			[_x + _width - _border - 18, _y + _border],
+			[_x + _width - _border - 1, _y + _border + 14],
+			[_x + _width - _border - 1, _y + _height - _border - 14],
+			[_x + _width - _border - 17, _y + _height - _border - 1],
+			[_x, _y + _height - _border - 1]
 		]);
 		
 		// Draw icon

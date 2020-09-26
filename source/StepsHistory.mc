@@ -55,20 +55,16 @@ class StepsHistory extends Ui.Drawable {
 		dc.fillPolygon([
 			[_x, _y + _padding],
 			[_x + _padding, _y],
-			[_x + width - _padding - 1, _y],
-			[_x + width - 1, _y + _padding],
-			[_x + width - 1, _y + height - _padding / 2 - 1],
-			[_x + width - _padding / 2 - 1, _y + height - 1],
+			[dc.getWidth(), _y],
+			[dc.getWidth(), _y + height - 1],
 			[_x + _padding / 2, _y + height - 1],
 			[_x, _y + height - _padding / 2 - 1]]);
 		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[_x + _border, _y + _border + _padding - 1],
 			[_x + _border + _padding - 1, _y + _border],
-			[_x + width - _border - _padding - 1, _y + _border],
-			[_x + width - _border - 1, _y + _border + _padding],
-			[_x + width - _border - 1, _y + height - _border - _padding / 2 - 1],
-			[_x + width - _border - _padding / 2 - 1, _y + height - _border - 1],
+			[dc.getWidth(), _y + _border],
+			[dc.getWidth(), _y + height - _border - 1],
 			[_x + _border + _padding / 2 - 1, _y + height - _border - 1],
 			[_x + _border, _y + height - _border - _padding / 2]]);
 			
