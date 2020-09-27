@@ -1,6 +1,8 @@
 # AlejacmaW1
 
-Sample Watch face for Garmin Fenix 6X.
+My first watch face for Garmin Fenix 6X.
+
+Note this is a work in progress.
 
 # Useful links
 
@@ -14,5 +16,6 @@ Official documentation:
 Fonts:
 - [Technology 2](https://www.dafont.com/es/technology-2.font?text=14%3A26)
 
-Other watch faces:
+Other watch faces with source code:
 - [Connect-IQ-WatchFace](https://gitlab.com/ravenfeld/Connect-IQ-WatchFace)
+- [Connect IQ Apps with Source Code](https://starttorun.info/connect-iq-apps-with-source-code/)
