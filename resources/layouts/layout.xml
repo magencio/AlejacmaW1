@@ -7,9 +7,16 @@
 	</drawable>
 	<drawable class="Steps">
 		<param name="color">Graphics.COLOR_WHITE</param>	
-		<param name="lineColor">Graphics.COLOR_LT_GRAY</param>
+		<param name="lineColor">Graphics.COLOR_WHITE</param>
 		<param name="progressColor">Graphics.COLOR_ORANGE</param>		
-	</drawable>	
+	</drawable>
+	<drawable class="Battery">
+		<param name="color">Graphics.COLOR_WHITE</param>
+		<param name="chargingColor">Graphics.COLOR_GREEN</param>
+		<param name="percentageColor">Graphics.COLOR_BLACK</param>
+		<param name="x">250</param>
+		<param name="y">80</param>
+	</drawable>
 	<drawable class="HeartRate">
 		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
 		<param name="backgroundColor">Graphics.COLOR_WHITE</param>

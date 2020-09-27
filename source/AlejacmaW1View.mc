@@ -23,20 +23,6 @@ class AlejacmaW1View extends WatchUi.WatchFace {
     	if(dc has :setAntiAlias) {
 			dc.setAntiAlias(true);
 		}
-    
-    	/*
-    	var stats = System.getSystemStats();
-
-        // Update battery
-        var battery = stats.battery;
-        var charging = stats.charging;
-        var batteryView = View.findDrawableById("BatteryLabel");
-        if (charging) {
-        	batteryView.setColor(Graphics.COLOR_GREEN);
-        } 
-        batteryView.setText(Lang.format("$1$%", [battery.format("%d")]));
-        
-   		*/
         
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);

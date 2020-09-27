@@ -91,6 +91,6 @@ class DateTime extends Ui.Drawable {
 		// Draw alarm icon
 		dc.setColor(settings.alarmCount > 0? _color : _disabledColor, Graphics.COLOR_TRANSPARENT);
 		font = Ui.loadResource(Rez.Fonts.IconsFont);
-		dc.drawText(width / 2 - 32, _y + _height / 2 + 8, font, 82.toChar(), Graphics.TEXT_JUSTIFY_RIGHT);	
+		dc.drawText(width / 2 - 32, _y + _height / 2 + 10, font, 82.toChar(), Graphics.TEXT_JUSTIFY_RIGHT);	
   	}
 }

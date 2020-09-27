@@ -15,9 +15,6 @@ class Phone extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		var height = dc.getHeight();
-		var width = dc.getWidth();
-		
 		var settings = System.getDeviceSettings();
 		
 		// Draw number of notifications
@@ -30,13 +27,7 @@ class Phone extends Ui.Drawable {
 		// Draw phone icon
 		font = Ui.loadResource(Rez.Fonts.IconsFont);
 		fontHeight = dc.getFontHeight(font);
-
-		if (settings.phoneConnected) {
-			dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-			dc.fillRectangle(_x + 5, _y - fontHeight / 2 + 6, 6, 9);
-		}
-		
 		dc.setColor(settings.phoneConnected ? _color : _inactiveColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(_x + 1, _y - fontHeight / 2 - 1, font, 193.toChar(), Graphics.TEXT_JUSTIFY_LEFT);	
+		dc.drawText(_x + 1, _y - fontHeight / 2 - 1, font, 107.toChar(), Graphics.TEXT_JUSTIFY_LEFT);	
 	}
 }
