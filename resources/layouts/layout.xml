@@ -31,10 +31,11 @@
 		<param name="padding">5</param>
 		<param name="border">2</param>
 	</drawable>
-	<drawable class="Time">
+	<drawable class="DateTime">
 		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="backgroundColor">Graphics.COLOR_WHITE</param>	
+		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
 		<param name="color">Graphics.COLOR_BLACK</param>
+		<param name="disabledColor">Graphics.COLOR_LT_GRAY</param>	
 		<param name="y">178</param>
 		<param name="height">70</param>		
 		<param name="border">2</param>
