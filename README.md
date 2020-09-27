@@ -1,6 +1,6 @@
 # AlejacmaW1
 
-My first watch face for Garmin Fenix 6X.
+My first watch face for Garmin Fenix 6X, inspired by [CASIO III](https://apps.garmin.com/es-ES/apps/0adf6c94-07b8-4071-8292-38875918c85e), which is not supported on this model yet (27th Sept, 2020).
 
 Note this is a work in progress.
 
