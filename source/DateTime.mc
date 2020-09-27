@@ -37,16 +37,25 @@ class DateTime extends Ui.Drawable {
 			[112, _y],
 			[width, _y],
 			[width, _y + _height - 1],
-			[0, _y + _height - 1]
+			[90, _y + _height - 1],
+			[86, _y + _height - 5],
+			[86, _y + _height - 16],
+			[82, _y + _height - 20],
+			[0, _y + _height - 20],
 		]);
-		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
+		
+		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);		
 		dc.fillPolygon([
 			[0, _y + 25 + _border],
 			[83, _y + 25 + _border],
 			[113, _y + _border],
 			[width, _y + _border],
 			[width, _y + _height - _border - 1],
-			[0, _y + _height - _border - 1]
+			[91, _y + _height - _border - 1],
+			[86 + _border, _y + _height - _border - 4],
+			[86 + _border, _y + _height - _border - 15],
+			[83, _y + _height - _border - 20],
+			[0, _y + _height - _border - 20],
 		]);
 		
 		// Draw current time

@@ -9,7 +9,7 @@
 		<param name="color">Graphics.COLOR_WHITE</param>	
 		<param name="lineColor">Graphics.COLOR_LT_GRAY</param>
 		<param name="progressColor">Graphics.COLOR_ORANGE</param>		
-	</drawable>
+	</drawable>	
 	<drawable class="HeartRate">
 		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
 		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
@@ -41,6 +41,12 @@
 		<param name="y">178</param>
 		<param name="height">70</param>		
 		<param name="border">2</param>
+	</drawable>
+	<drawable class="Phone">
+		<param name="color">Graphics.COLOR_WHITE</param>
+		<param name="inactiveColor">Graphics.COLOR_LT_GRAY</param>
+		<param name="x">69</param>
+		<param name="y">237</param>
 	</drawable>
 	<drawable class="Calories">
 		<param name="color">Graphics.COLOR_WHITE</param>		
