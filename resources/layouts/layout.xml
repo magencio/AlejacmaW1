@@ -55,6 +55,13 @@
 		<param name="x">69</param>
 		<param name="y">237</param>
 	</drawable>
+	<drawable class="MoveBarLevel">
+		<param name="activeColor">Graphics.COLOR_WHITE</param>
+		<param name="inactiveColor">Graphics.COLOR_LT_GRAY</param>
+		<param name="x">252</param>
+		<param name="y">178</param>
+		<param name="border">2</param>
+	</drawable>
 	<drawable class="Calories">
 		<param name="color">Graphics.COLOR_WHITE</param>		
 	</drawable>

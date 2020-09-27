@@ -12,7 +12,6 @@ class Steps extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		var height = dc.getHeight();
 		var width = dc.getWidth();
 		
 		var activity = ActivityMonitor.getInfo();
