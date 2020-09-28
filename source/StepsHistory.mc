@@ -117,7 +117,7 @@ class StepsHistory extends Ui.Drawable {
 						dc.setColor(_goalColor, Graphics.COLOR_TRANSPARENT);
 						var goalHeight = _barHeight * history[i].stepGoal / topSteps;
 						var y = _y + _border + _padding + _barHeight - goalHeight;
-						dc.drawLine(x, y, x + _barWidth, y);
+						dc.drawLine(x, y, x + _barWidth - 1, y);
 					}				        						
 				}
 			}

@@ -4,6 +4,10 @@ My first watch face for Garmin Fenix 6X, inspired by [CASIO III](https://apps.ga
 
 Note this is a work in progress.
 
+<img src="AlejacmaW1.png"
+     alt="AlejacmaW1"
+     width="350" />
+
 # Useful links
 
 Official documentation:
