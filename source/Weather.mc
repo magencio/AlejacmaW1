@@ -1,3 +1,4 @@
+using Toybox.StringUtil;
 using Toybox.System;
 using Toybox.Weather;
 using Toybox.WatchUi as Ui;
@@ -56,6 +57,9 @@ class Weather extends Ui.Drawable {
 		
 		// Draw location name
 		var observationLocationName = weather.observationLocationName ? weather.observationLocationName: "--------";
+		var comma = observationLocationName.find(",");
+		observationLocationName = observationLocationName.substring(0, comma > 15 ? 15 : comma);
+
 		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
 		var font = Ui.loadResource(Rez.Fonts.Tech18Font);
 		var fontHeight = dc.getFontHeight(font);
