@@ -55,7 +55,9 @@ class Weather extends Ui.Drawable {
 			[0, _y + _height - _border - 26],
 		]);
 		
-		// Draw location name
+		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
+		// As Tech18Font by default doesn't support Spanish accents, I've modified the
+		// .fnt file so e.g. 'Á' (193) points to the same bitmap as 'A' (65).
 		var observationLocationName = weather.observationLocationName ? weather.observationLocationName: "--------";
 		var comma = observationLocationName.find(",");
 		observationLocationName = observationLocationName.substring(0, comma > 15 ? 15 : comma);
