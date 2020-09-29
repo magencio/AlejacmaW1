@@ -33,7 +33,11 @@ class Steps extends Ui.Drawable {
 		
 		// Draw steps
 		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-		var steps = activity.steps.format("%04d");
+		var steps = activity.steps;
+		if (steps > 99999) {
+			steps = 99999;
+		}
+		steps = steps.format("%04d");
 		var font = Ui.loadResource(Rez.Fonts.Tech24Font);
 		var fontHeight = dc.getFontHeight(font);
 		dc.drawText(width / 2, y - fontHeight - 4, font, steps, Graphics.TEXT_JUSTIFY_CENTER);
