@@ -8,6 +8,12 @@ Note this is a work in progress.
      alt="AlejacmaW1"
      width="350" />
 
+## TO DO
+- Code refactor.
+- Full Spanish support.
+- Configure colors via settings.
+- Tweak design.
+
 # Useful links
 
 Official documentation:

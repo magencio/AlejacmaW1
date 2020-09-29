@@ -11,12 +11,8 @@
 		<param name="progressColor">Graphics.COLOR_ORANGE</param>		
 	</drawable>
 	<drawable class="Weather">
-		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
-		<param name="color">Graphics.COLOR_BLACK</param>
 		<param name="y">35</param>
 		<param name="height">64</param>		
-		<param name="border">2</param>
 	</drawable>
 	<drawable class="Battery">
 		<param name="color">Graphics.COLOR_WHITE</param>
