@@ -72,17 +72,20 @@ class DateTime extends Ui.Drawable {
         dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
         var font = Ui.loadResource(Rez.Fonts.Tech60Font);
         var fontHeight = dc.getFontHeight(font);
-		dc.drawText(width / 2 + 36, _y + _height / 2 - fontHeight / 2, font, time, Graphics.TEXT_JUSTIFY_CENTER);
+        var xOffset = settings.is24Hour ? 0 : 4; 
+        var y = _y + _height / 2 - fontHeight / 2;
+		dc.drawText(width / 2 + 36 - xOffset, y, font, time, Graphics.TEXT_JUSTIFY_CENTER);
 		
 		// Draw AM/PM	
         font = Ui.loadResource(Rez.Fonts.Tech18Font);
         dc.setColor(_disabledColor, Graphics.COLOR_TRANSPARENT);
         if (!settings.is24Hour) {
         	if (clockTime.hour > 12) {
-	        	dc.drawText(width / 2 - 17, _y + 10, font, "PM", Graphics.TEXT_JUSTIFY_RIGHT);
+	        	dc.drawText(width - _border - 42, y, font, "P", Graphics.TEXT_JUSTIFY_CENTER);
 	        } else {
-	        	dc.drawText(width / 2 - 17, _y + 10, font, "AM", Graphics.TEXT_JUSTIFY_RIGHT);
+	        	dc.drawText(width - _border - 42, y, font, "A", Graphics.TEXT_JUSTIFY_CENTER);
 	        }
+			dc.drawText(width - _border - 42, y + 14, font, "M", Graphics.TEXT_JUSTIFY_CENTER);
 	    }
         
         // Draw date
