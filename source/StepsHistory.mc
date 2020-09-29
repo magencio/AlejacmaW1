@@ -35,7 +35,6 @@ class StepsHistory extends Ui.Drawable {
 		}
 
 		var activity = ActivityMonitor.getInfo();
-        var date = Gregorian.info(Time.now(), Time.FORMAT_LONG);
 		
 		// If we got no _x param, center the bars horizontally
 		var width = MAX_BARS * _barWidth + (MAX_BARS + 1) * _padding + _border * 2;
@@ -71,7 +70,9 @@ class StepsHistory extends Ui.Drawable {
 		// Draw text for days
 		dc.setColor(_dayColor, Graphics.COLOR_TRANSPARENT);
 		for (var i = MAX_BARS - 1, x = _x + _border + _padding + _barWidth / 2; i >= 0; i -= 1, x += _barWidth + _padding) {
-			dc.drawText(x, _y + height, font, (date.day - i).format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
+			var time = Time.now().subtract(new Time.Duration(60 * 60 * 24 * i));
+		    var date = Gregorian.info(time, Time.FORMAT_LONG);		    	
+			dc.drawText(x, _y + height, font, date.day.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 
 		// Number of steps represented by the top of the bars
