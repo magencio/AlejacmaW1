@@ -79,9 +79,9 @@ class DateTime extends Ui.Drawable {
         dc.setColor(_disabledColor, Graphics.COLOR_TRANSPARENT);
         if (!settings.is24Hour) {
         	if (clockTime.hour > 12) {
-	        	dc.drawText(width / 2 - 20, _y + 10, font, "P", Graphics.TEXT_JUSTIFY_RIGHT);
+	        	dc.drawText(width / 2 - 17, _y + 10, font, "PM", Graphics.TEXT_JUSTIFY_RIGHT);
 	        } else {
-	        	dc.drawText(width / 2 - 20, _y + 10, font, "A", Graphics.TEXT_JUSTIFY_RIGHT);
+	        	dc.drawText(width / 2 - 17, _y + 10, font, "AM", Graphics.TEXT_JUSTIFY_RIGHT);
 	        }
 	    }
         
