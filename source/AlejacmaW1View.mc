@@ -23,7 +23,7 @@ class AlejacmaW1View extends WatchUi.WatchFace {
     	if(dc has :setAntiAlias) {
 			dc.setAntiAlias(true);
 		}
-        
+		
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
     }
