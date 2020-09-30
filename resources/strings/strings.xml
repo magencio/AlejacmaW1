@@ -1,6 +1,6 @@
 <strings>
 
-    <string id="AppName">alejacmaW1</string>
+    <string id="AppName">AlejacmaW1</string>
 
     <string id="BackgroundColorTitle">Background Color</string>
     <string id="ForegroundColorTitle">Foreground Color</string>
@@ -66,5 +66,8 @@
     <string id="ConditionIceSnow">Ice snow</string>
     <string id="ConditionThinClouds">Thin clouds</string>
     <string id="ConditionUnknown">Unknown</string>
+    
+    <string id="HeartRateTopTitle">Heart</string>
+    <string id="HeartRateBottomTitle">Rate</string>
 
 </strings>

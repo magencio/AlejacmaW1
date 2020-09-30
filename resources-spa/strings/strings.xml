@@ -1,0 +1,73 @@
+<strings>
+
+    <string id="AppName">AlejacmaW1</string>
+
+    <string id="BackgroundColorTitle">Color de Fondo</string>
+    <string id="ForegroundColorTitle">Color de Primer Plano</string>
+
+    <string id="ColorBlack">Negro</string>
+    <string id="ColorDarkGray">Gris Oscuro</string>
+    <string id="ColorLightGray">Gris Claro</string>
+    <string id="ColorWhite">Blanco</string>
+    <string id="ColorBlue">Azul</string>
+    <string id="ColorRed">Rojo</string>
+    
+    <string id="ConditionClear">Despejado</string>
+    <string id="ConditionPartlyCloudy">Parcialmente nublado</string>
+    <string id="ConditionMostlyCloudy">Mayormente nublado</string>
+    <string id="ConditionRain">Lluvia</string>
+    <string id="ConditionSnow">Nieve</string>
+    <string id="ConditionWindy">Ventoso</string>
+    <string id="ConditionThunderstorms">Tormentas</string>
+    <string id="ConditionWintryMix">Mezcla invernal</string>
+    <string id="ConditionFog">Niebla</string>
+    <string id="ConditionHazy">Brumoso</string>
+    <string id="ConditionHail">Granizo</string>
+    <string id="ConditionScatteredShowers">Chubascos dispersos</string>
+    <string id="ConditionScatteredThunderstorms">Tormentas dispersas</string>
+    <string id="ConditionUnknownPrecipitation">Precipitacion desconocida</string>
+    <string id="ConditionLightRain">Lluvia ligera</string>
+    <string id="ConditionHeavyRain">Lluvia intensa</string>
+    <string id="ConditionLightSnow">Nieve ligera</string>
+    <string id="ConditionHeavySnow">Fuertes nevadas</string>
+    <string id="ConditionLightRainSnow">Aguanieve ligera</string>
+    <string id="ConditionHeavyRainSnow">Auganieve intensa</string>
+    <string id="ConditionCloudy">Nublado</string>
+    <string id="ConditionRainSnow">Aguanieve</string>
+    <string id="ConditionPartlyClear">Parcialmente despejado</string>
+    <string id="ConditionMostlyClear">Mayormente despejado</string>
+    <string id="ConditionLightShowers">Chubascos ligeros</string>
+    <string id="ConditionShowers">Chubascos</string>
+    <string id="ConditionHeavyShowers">Chubascos intensos</string>
+    <string id="ConditionChanceOfShowers">Posibilidad de chubascos</string>
+    <string id="ConditionChanceOfThunderstorms">Posibilidad de tormentas</string>
+    <string id="ConditionMist">Niebla ligera</string>
+    <string id="ConditionDust">Polvo</string>
+    <string id="ConditionDrizzle">Llovizna</string>
+    <string id="ConditionTornado">Tornado</string>
+    <string id="ConditionSmoke">Humo</string>
+    <string id="ConditionIce">Hielo</string>
+    <string id="ConditionSand">Arena</string>
+    <string id="ConditionSquall">Chubascos</string>
+    <string id="ConditionSandstorm">Tormenta de arena</string>
+    <string id="ConditionVolcanicAsh">Ceniza volcanica</string>
+    <string id="ConditionHaze">Neblina</string>
+    <string id="ConditionFair">Buen tiempo</string>
+    <string id="ConditionHurricane">Huracan</string>
+    <string id="ConditionTropicalStorm">Tormenta tropical</string>
+    <string id="ConditionChanceOfSnow">Probabilidad de nieve</string>
+    <string id="ConditionChanceOfRainSnow">Probabilidad de aguanieve</string>
+    <string id="ConditionCloudyChanceOfRain">Nublado prob. lluvia</string>
+    <string id="ConditionCloudyChanceOfSnow">Nublado prob. nieve</string>
+    <string id="ConditionCloudyChanceOfRainSnow">Nublado prob. aguanieve</string>
+    <string id="ConditionFlurries">Rafagas</string>
+    <string id="ConditionFreezingRain">Lluvia helada</string>
+    <string id="ConditionSleet">Aguanieve</string>
+    <string id="ConditionIceSnow">Nieve helada</string>
+    <string id="ConditionThinClouds">Nubes delgadas</string>
+    <string id="ConditionUnknown">Desconocido</string>
+
+    <string id="HeartRateTopTitle">Frec.</string>
+    <string id="HeartRateBottomTitle">Cardiaca</string>
+
+</strings>

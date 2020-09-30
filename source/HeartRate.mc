@@ -31,7 +31,7 @@ class HeartRate extends Ui.Drawable {
 	function drawTopTitle(dc) {
 		var x = _width / 2, y = 99;
 		
-		var title = "HEART";
+		var title = Ui.loadResource(Rez.Strings.HeartRateTopTitle);
 		var titleWidth = dc.getTextWidthInPixels(title, _titleFont);
 		
 		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
@@ -43,7 +43,7 @@ class HeartRate extends Ui.Drawable {
 	function drawBottomTitle(dc) {
 		var x = _width / 2, y = 159;
 		
-		var title = "RATE";
+		var title = Ui.loadResource(Rez.Strings.HeartRateBottomTitle);
 		
 		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);	
