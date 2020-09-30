@@ -5,9 +5,8 @@ using Toybox.Weather;
 using Toybox.WatchUi as Ui;
 
 class Weather extends Ui.Drawable {
-	hidden var _borderColor, _backgroundColor, _color, _lowColor, _highColor;
-	hidden var _x, _y;
-	hidden var _height, _width, _fontHeight;
+	hidden var _areaForegroundColor, _lowTemperatureColor, _highTemperatureColor;
+	hidden var _screenHeight, _screenWidth;
 	hidden var _border;
 	hidden var _font;
 	
@@ -68,105 +67,74 @@ class Weather extends Ui.Drawable {
 		Rez.Strings.ConditionUnknown,
 	];
 
-	function initialize(params) {
-		Drawable.initialize(params);
+	function initialize() {
+		Drawable.initialize({ :identifier => "Weather" });
 		
-		_borderColor = params.get(:borderColor) == null ? Graphics.COLOR_LT_GRAY : params.get(:borderColor);
-		_backgroundColor = params.get(:backgroundColor) == null ? Graphics.COLOR_WHITE : params.get(:backgroundColor);
-		_color = params.get(:color) == null ? Graphics.COLOR_BLACK : params.get(:color);
-		_lowColor = params.get(:lowColor) == null ? Graphics.COLOR_BLUE : params.get(:lowColor);
-		_highColor = params.get(:highColor) == null ? Graphics.COLOR_ORANGE : params.get(:highColor);
+		_areaForegroundColor = Graphics.COLOR_BLACK;
+		_lowTemperatureColor = Graphics.COLOR_DK_BLUE;
+		_highTemperatureColor = Graphics.COLOR_ORANGE;
 				
-		_x = params.get(:x) == null ? 0 : params.get(:x);
-		_y = params.get(:y) == null ? 0 : params.get(:y);
 		
-		_height = params.get(:height) == null ? System.getDeviceSettings().screenHeight : params.get(:height);
-		_width = params.get(:width) == null ? System.getDeviceSettings().screenWidth : params.get(:width);
-		_border = params.get(:border) == null ? 2 : params.get(:border);
+		_screenWidth = System.getDeviceSettings().screenWidth;
+		_border = Background.BORDER;
 		
-		_font = Ui.loadResource(Rez.Fonts.Tech18Font);
-		_fontHeight = Graphics.getFontHeight(_font);
+		_font = Ui.loadResource(Rez.Fonts.Tech18Font);				
 	}
 	
 	function draw(dc) {
-		var units = System.getDeviceSettings().temperatureUnits == System.UNIT_STATUTE ? "F" : "C";		
-		var weather = Weather.getCurrentConditions();
-		
-		drawBackground(dc);
-		
-		var x = _x + _width / 2;
-		if (weather == null) {
-			drawUnavailableWeather(dc, x + 20, _y + _height / 2 - 2);
+		if (Weather.getCurrentConditions() == null) {
+			drawUnavailableWeather(dc);
 			return;
 		}
 		
-		drawWeatherCondition(dc, x, _y + 11, weather.condition);
-		
-		x = x - 34;
-		var y = _y + _height / 2 - 2;
-		drawTemperature(dc, _color, x, y, weather.temperature, units);
-		
-		x = x + 45;
-		drawTemperature(dc, _lowColor, x, y, weather.lowTemperature, units);
-		
-		x = x + 45;
-		drawTemperature(dc, _highColor, x, y, weather.highTemperature, units);
-		
-		x = x + 45;
-		drawPrecipitationChance(dc, x, y, weather.precipitationChance);
-		
-		x = _x + _width / 2 + 28;
-		y = _y + _height - 24;
-		drawLocation(dc, x, y, weather.observationLocationName);
+		drawWeatherCondition(dc);
+		drawCurrentTemperature(dc);
+		drawLowTemperature(dc);
+		drawHighTemperature(dc);
+		drawPrecipitationChance(dc);
+		drawLocation(dc);		
 	}
 	
-	function drawBackground(dc) {	
-		dc.setColor(_borderColor, Graphics.COLOR_TRANSPARENT);
-		dc.fillPolygon([
-			[_x, _y],
-			[_x + _width, _y],
-			[_x + _width, _y + _height - 22],
-			[_x + _width - 46, _y + _height - 22],
-			[_x + _width - 50, _y + _height - 18],
-			[_x + _width - 50, _y + _height - 5],
-			[_x + _width - 54, _y + _height - 1],
-			[_x + 112, _y + _height - 1],
-			[_x + 82, _y + _height - 26],
-			[_x + 0, _y + _height - 26],
-		]);
-	
-		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);		
-		dc.fillPolygon([
-			[_x, _y + _border],
-			[_x + _width, _y + _border],
-			[_x + _width, _y + _height - _border - 22],
-			[_x + _width - _border - 46, _y + _height - _border - 22],
-			[_x + _width - _border - 50, _y + _height - _border - 18],
-			[_x + _width - _border - 50, _y + _height - _border - 5],
-			[_x + _width - _border - 54, _y + _height - _border - 1],
-			[_x + 115 - _border, _y + _height - _border - 1],
-			[_x + 85 - _border, _y + _height - _border - 26],
-			[_x, _y + _height - _border - 26],
-		]);
-	}
-	
-	function drawUnavailableWeather(dc, x, y) {
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+	function drawUnavailableWeather(dc) {
+		var x = _screenWidth / 2 + 20, y= 57;
+		
+		var message = "No weather data";
 
-		dc.drawText(x, y - _fontHeight / 2, _font, "No weather data", Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _font, message, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
-	function drawWeatherCondition(dc, x, y, weatherCondition) {
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
+	function drawWeatherCondition(dc) {
+		var x = 46, y = 38;
 		
-		var condition = Ui.loadResource(CONDITIONS[weatherCondition]);
-		
-		dc.drawText(x, y - _fontHeight / 2, _font, condition, Graphics.TEXT_JUSTIFY_CENTER);	
-	}
-	
-	function drawTemperature(dc, color, x, y, temperature, units) {
-		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+		var condition = Weather.getCurrentConditions().condition;		
+		condition = Ui.loadResource(CONDITIONS[condition]);
 
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _font, condition, Graphics.TEXT_JUSTIFY_LEFT);	
+	}
+	
+	function drawCurrentTemperature(dc) {
+		var x = _screenWidth / 2 - 34, y = 57;
+
+		drawTemperature(dc, _areaForegroundColor, x, y, Weather.getCurrentConditions().temperature);
+	}
+	
+	function drawLowTemperature(dc) {
+		var x = _screenWidth / 2 + 11, y = 57;
+
+		drawTemperature(dc, _lowTemperatureColor, x, y, Weather.getCurrentConditions().lowTemperature);
+	}
+	
+	function drawHighTemperature(dc) {
+		var x = _screenWidth / 2 + 56, y = 57;
+
+		drawTemperature(dc, _highTemperatureColor, x, y, Weather.getCurrentConditions().highTemperature);
+	}
+	
+	function drawTemperature(dc, color, x, y, temperature) {	
+		// Temperature
+		var units = System.getDeviceSettings().temperatureUnits == System.UNIT_STATUTE ? "F" : "C";
 		temperature = units.equals("F") ? temperature * 1.8 + 32 : temperature;
 		temperature = temperature.format("%d");
 
@@ -176,20 +144,27 @@ class Weather extends Ui.Drawable {
 		var width = temperatureWidth + 2 + degreesWidth + 2 + unitsWidth;
 
 		x = x - width / 2;
-		y = y - _fontHeight / 2;
+
+		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, temperature, Graphics.TEXT_JUSTIFY_LEFT);
-		
+				
+		// Degree glyph (not available in any font under resources/fonts)
 		x = x + temperatureWidth + 2;
+
 		dc.setPenWidth(1);
 		dc.drawRectangle(x, y + 4, degreesWidth, degreesWidth);
 		
+		// Units
 		x = x + degreesWidth + 2;
+
 		dc.drawText(x, y, _font, units, Graphics.TEXT_JUSTIFY_LEFT);
 	}
 	
-	function drawPrecipitationChance(dc, x, y, precipitationChance) {
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-	
+	function drawPrecipitationChance(dc) {
+		var x = _screenWidth / 2 + 101, y = 57;
+		
+		// Precipitation chance
+		var precipitationChance = Weather.getCurrentConditions().precipitationChance;			
 		precipitationChance = precipitationChance.format("%d");
 	
 		var chanceWidth = dc.getTextWidthInPixels(precipitationChance, _font);
@@ -197,22 +172,30 @@ class Weather extends Ui.Drawable {
 		var width = chanceWidth + 2 + percentageWidth;
 		
 		x = x - width / 2;
-		y = y - _fontHeight / 2;
+
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, precipitationChance, Graphics.TEXT_JUSTIFY_LEFT);
-		
+
+		// Percentage glyph (not available in any font under resources/fonts)
 		x = x + chanceWidth + 2;
+		
 		dc.drawRectangle(x, y + 4, 4, 4);
 		dc.drawLine(x + 7, y + 4, x + 2, y + 15);
 		dc.drawRectangle(x + 6, y + 12, 4, 4);
 	}
 	
-	function drawLocation(dc, x, y, observationLocationName) {
+	function drawLocation(dc) {
+		var x = _screenWidth / 2 + 28, y = 75;
+
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As Tech18Font by default doesn't support Spanish accents, I've modified the
 		// .fnt file so e.g. 'Á' (193) points to the same bitmap as 'A' (65).
+		var observationLocationName = Weather.getCurrentConditions().observationLocationName;		
 		observationLocationName = observationLocationName == null ? "--------" : observationLocationName;
 		var comma = observationLocationName.find(",");
-		observationLocationName = observationLocationName.substring(0, comma == null || comma > 15 ? 15 : comma);	
+		observationLocationName = observationLocationName.substring(0, comma == null || comma > 15 ? 15 : comma);
+
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }

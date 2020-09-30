@@ -9,7 +9,6 @@ Note this is a work in progress.
      width="350" />
 
 ## TO DO
-- Code refactor.
 - Full Spanish support.
 - Configure colors via settings.
 - Tweak design.

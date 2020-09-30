@@ -3,68 +3,55 @@ using Toybox.ActivityMonitor;
 using Toybox.WatchUi as Ui;
 
 class HeartRate extends Ui.Drawable {
-	hidden var _borderColor, _backgroundColor, _textColor, _heartColor;
-	hidden var _x, _y;
-	hidden var _width, _height;
-	hidden var _border;
+	hidden var _areaForegroundColor, _heartRateColor;
+	hidden var _width;
+	hidden var _titleFont, _heartRateFont, _iconFont;
 	
-	function initialize(params) {
-		Drawable.initialize(params);
+	const ICON_HEART = 109.toChar(); // 'm' 
+	
+	function initialize() {
+		Drawable.initialize({ :identifier => "HeartRate" });
+			
+		_areaForegroundColor = Graphics.COLOR_BLACK;
+		_heartRateColor = Graphics.COLOR_RED;
 		
-		_borderColor = params.get(:borderColor);
-		_backgroundColor = params.get(:backgroundColor);
-		_textColor = params.get(:textColor);
-		_heartColor = params.get(:heartColor);
-		_x = params.get(:x); // Optional
-		_y = params.get(:y); // Optional		
-		_width = params.get(:width);
-		_height = params.get(:height);
-		_border = params.get(:border);
+		_width = 104;
+		
+		_titleFont = Ui.loadResource(Rez.Fonts.Tech18Font);
+		_heartRateFont = Ui.loadResource(Rez.Fonts.Tech48Font);		
+		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
-		// If we got no _x param, center the bars horizontally
-		if (_x == null) {
-			_x = (dc.getWidth() - _width) / 2;
-		}
-		
-		// If we got no _y param, center the bars vertically
-		if (_y == null) {
-			_y = (dc.getHeight() - _height - 14) / 2;
-		}
+		drawTopTitle(dc);
+		drawBottomTitle(dc);
+		drawHeartRate(dc);
+	}
 	
-		// Draw background
-		dc.setColor(_borderColor, Graphics.COLOR_TRANSPARENT);
-		dc.fillPolygon([
-			[_x, _y],
-			[_x + _width - 18, _y],
-			[_x + _width - 1, _y + 14],
-			[_x + _width - 1, _y + _height - 15],
-			[_x + _width - 18, _y + _height - 1],
-			[_x, _y + height - 1]
-		]);
-		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.fillPolygon([
-			[_x, _y + _border],
-			[_x + _width - _border - 18, _y + _border],
-			[_x + _width - _border - 1, _y + _border + 14],
-			[_x + _width - _border - 1, _y + _height - _border - 14],
-			[_x + _width - _border - 17, _y + _height - _border - 1],
-			[_x, _y + _height - _border - 1]
-		]);
+	function drawTopTitle(dc) {
+		var x = _width / 2, y = 99;
 		
-		// Draw icon
-		dc.setColor(_textColor, Graphics.COLOR_TRANSPARENT);
-		var font = Ui.loadResource(Rez.Fonts.IconsFont);
-		dc.drawText(_x + _width / 2 - 24, _y + _border, font, 109.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
+		var title = "HEART";
+		var titleWidth = dc.getTextWidthInPixels(title, _titleFont);
 		
-		// Draw text
-		font = Ui.loadResource(Rez.Fonts.Tech18Font);
-		var fontHeight = dc.getFontHeight(font);
-		dc.drawText(_x + _width / 2 + 8, _y + _border + 2, font, "HEART", Graphics.TEXT_JUSTIFY_CENTER);
-		dc.drawText(_x + _width / 2, _y + _height - _border - fontHeight - 4, font, "RATE", Graphics.TEXT_JUSTIFY_CENTER);
-				
-		// Draw heart rate
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x - titleWidth / 2 - 2, y - 2, _iconFont, ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);		
+	
+		dc.drawText(x + 9, y, _titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);
+	}
+	
+	function drawBottomTitle(dc) {
+		var x = _width / 2, y = 159;
+		
+		var title = "RATE";
+		
+		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);	
+	}
+	
+	function drawHeartRate(dc) {
+		var x = _width / 2, y = 114;
+		
 		var heartRate = Activity.getActivityInfo().currentHeartRate;
 		if (heartRate == null) {		
 			if(ActivityMonitor has :HeartRateIterator)
@@ -80,8 +67,8 @@ class HeartRate extends Ui.Drawable {
 		}
 		
 		heartRate = (heartRate != null) ? heartRate.format("%02d") : "--";
-		font = Ui.loadResource(Rez.Fonts.Tech48Font);
-		dc.setColor(_heartColor, Graphics.COLOR_TRANSPARENT);		
-		dc.drawText(_x + width / 2, _y + _border + 17, font, heartRate, Graphics.TEXT_JUSTIFY_CENTER);
+		
+		dc.setColor(_heartRateColor, Graphics.COLOR_TRANSPARENT);		
+		dc.drawText(x, y, _heartRateFont, heartRate, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

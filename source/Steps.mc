@@ -1,52 +1,61 @@
 using Toybox.WatchUi as Ui;
 
 class Steps extends Ui.Drawable {
-	hidden var _color, _lineColor, _progressColor;
+	hidden var _foregroundColor, _stepsGoalColor;
+	hidden var _screenWidth;
+	hidden var _stepsFont, _iconFont;
 	
-	function initialize(params) {
-		Drawable.initialize(params);
+	const ICON_STEPS = 196.toChar(); // 'Ä' 
+	
+	function initialize() {
+		Drawable.initialize({ :identifier => "Steps" });
 		
-		_color = params.get(:color);
-		_lineColor = params.get(:lineColor);
-		_progressColor = params.get(:progressColor);
+		_foregroundColor = Graphics.COLOR_WHITE;
+		_stepsGoalColor = Graphics.COLOR_ORANGE;
+		
+		_screenWidth = System.getDeviceSettings().screenWidth;
+		
+		_stepsFont = Ui.loadResource(Rez.Fonts.Tech24Font);
+		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
-		var width = dc.getWidth();
+		drawProgressLine(dc);
+		drawSteps(dc);
+		drawIcons(dc);
+	}
+	
+	function drawProgressLine(dc) {
+		var x = 52, y = 30;
 		
-		var activity = ActivityMonitor.getInfo();
-
-		// Draw line		
-		dc.setColor(_lineColor, Graphics.COLOR_TRANSPARENT);
-		dc.setPenWidth(2);
-		var y = 30;
-		dc.drawLine(52, y, width - 52, y);
+		var steps = ActivityMonitor.getInfo().steps;
+		var stepGoal = ActivityMonitor.getInfo().stepGoal;
 		
-		// Draw progress line
-		var progress = (width - 52 * 2) * activity.steps /activity.stepGoal;
-		if (progress > width - 52 * 2) {
-			progress = width - 52 * 2;
-		}
-		dc.setColor(_progressColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawLine(52, y, 52 + progress, y);
-		dc.fillRectangle(52 + progress - 2, y - 2, 5, 5);
+		var maxWidth = _screenWidth - x * 2; 
+		var progress = maxWidth * steps / stepGoal;
+		progress = progress > maxWidth ? maxWidth : progress;
+			
+		dc.setColor(_stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawLine(x, y, x + progress, y);
+		dc.fillRectangle(x + progress - 2, y - 2, 5, 5);	
+	}
+	
+	function drawSteps(dc) {
+		var x = _screenWidth / 2, y = 2;
 		
-		// Draw steps
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-		var steps = activity.steps;
-		if (steps > 99999) {
-			steps = 99999;
-		}
+		var steps = ActivityMonitor.getInfo().steps;
+		steps = steps > 99999 ? 99999 : steps;  
 		steps = steps.format("%04d");
-		var font = Ui.loadResource(Rez.Fonts.Tech24Font);
-		var fontHeight = dc.getFontHeight(font);
-		dc.drawText(width / 2, y - fontHeight - 4, font, steps, Graphics.TEXT_JUSTIFY_CENTER);
 		
-		// Draw icon
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-		font = Ui.loadResource(Rez.Fonts.IconsFont);
-		fontHeight = dc.getFontHeight(font);
-		dc.drawText(width / 2 - 36, y - fontHeight - 8, font, 196.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
-		dc.drawText(width / 2 + 37, y - fontHeight - 8, font, 196.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _stepsFont, steps, Graphics.TEXT_JUSTIFY_CENTER);
+	}
+	
+	function drawIcons(dc) {
+		var x1 = _screenWidth / 2 - 36, x2 = _screenWidth / 2 + 37, y = 4;
+		
+		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x1, y, _iconFont, ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.drawText(x2, y, _iconFont, ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }

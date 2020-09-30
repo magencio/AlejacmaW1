@@ -1,72 +1,12 @@
 <layout id="WatchFace">
     <drawable class="Background" />
-	<drawable class="Ornaments">
-		<param name="color">Graphics.COLOR_WHITE</param>
-		<param name="topFromCenter">62</param>
-		<param name="bottomFromCenter">58</param>
-	</drawable>
-	<drawable class="Steps">
-		<param name="color">Graphics.COLOR_WHITE</param>	
-		<param name="lineColor">Graphics.COLOR_WHITE</param>
-		<param name="progressColor">Graphics.COLOR_ORANGE</param>		
-	</drawable>
-	<drawable class="Weather">
-		<param name="y">35</param>
-		<param name="height">64</param>		
-	</drawable>
-	<drawable class="Battery">
-		<param name="color">Graphics.COLOR_WHITE</param>
-		<param name="chargingColor">Graphics.COLOR_GREEN</param>
-		<param name="percentageColor">Graphics.COLOR_BLACK</param>
-		<param name="x">250</param>
-		<param name="y">80</param>
-	</drawable>
-	<drawable class="HeartRate">
-		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
-		<param name="textColor">Graphics.COLOR_BLACK</param>
-		<param name="heartColor">Graphics.COLOR_RED</param>
-		<param name="x">0</param>
-		<param name="y">95</param>
-		<param name="width">104</param>
-		<param name="height">87</param>
-		<param name="border">2</param>
-	</drawable>
-	<drawable class="StepsHistory">
-		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
-		<param name="barColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="goalColor">Graphics.COLOR_ORANGE</param>
-		<param name="dayColor">Graphics.COLOR_WHITE</param>
-		<param name="x">110</param>
-		<param name="barHeight">30</param>
-		<param name="barWidth">15</param>
-		<param name="padding">5</param>
-		<param name="border">2</param>
-	</drawable>
-	<drawable class="DateTime">
-		<param name="borderColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="backgroundColor">Graphics.COLOR_WHITE</param>
-		<param name="color">Graphics.COLOR_BLACK</param>
-		<param name="disabledColor">Graphics.COLOR_LT_GRAY</param>	
-		<param name="y">178</param>
-		<param name="height">70</param>		
-		<param name="border">2</param>
-	</drawable>
-	<drawable class="Phone">
-		<param name="color">Graphics.COLOR_WHITE</param>
-		<param name="inactiveColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="x">69</param>
-		<param name="y">237</param>
-	</drawable>
-	<drawable class="MoveBarLevel">
-		<param name="activeColor">Graphics.COLOR_WHITE</param>
-		<param name="inactiveColor">Graphics.COLOR_LT_GRAY</param>
-		<param name="x">252</param>
-		<param name="y">178</param>
-		<param name="border">2</param>
-	</drawable>
-	<drawable class="Calories">
-		<param name="color">Graphics.COLOR_WHITE</param>		
-	</drawable>
+	<drawable class="Steps"/> 
+	<drawable class="Weather"/>
+	<drawable class="Battery"/>
+	<drawable class="HeartRate"/> 
+	<drawable class="StepsHistory"/>
+	<drawable class="DateTime"/>
+	<drawable class="Phone"/>
+	<drawable class="MoveBarLevel"/>
+	<drawable class="Calories"/>
 </layout>

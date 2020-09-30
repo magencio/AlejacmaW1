@@ -1,42 +1,53 @@
 using Toybox.WatchUi as Ui;
 
 class Calories extends Ui.Drawable {
-	hidden var _color;
+	hidden var _foregroundColor;
+	hidden var _screenWidth, _screenHeight;
+	hidden var _caloriesFont, _unitsFont, _iconFont;
 	
-	function initialize(params) {
-		Drawable.initialize(params);
+	const ICON_CALORIES = 88.toChar(); // 'X'
+	
+	function initialize() {
+		Drawable.initialize({ :identifier => "Calories" });
 		
-		_color = params.get(:color);
+		_foregroundColor = Graphics.COLOR_WHITE;
+		
+		_screenWidth = System.getDeviceSettings().screenWidth;
+		_screenHeight = System.getDeviceSettings().screenHeight;
+		
+		_caloriesFont = Ui.loadResource(Rez.Fonts.Tech24Font);
+		_unitsFont = Ui.loadResource(Rez.Fonts.Tech16Font);
+		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
-		var height = dc.getHeight();
-		var width = dc.getWidth();
+		drawCalories(dc);
+		drawIcon(dc);
+		drawUnits(dc);
+	}
 	
-		var activity = ActivityMonitor.getInfo();
-
-		// Draw line		
-		dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-		dc.setPenWidth(2);
-		var y = height - 29;
-		dc.drawLine(0, y, width, y);
+	function drawCalories(dc) {
+		var x = _screenWidth / 2, y = _screenHeight - 26;
 		
-		// Draw icon
-		var font = Ui.loadResource(Rez.Fonts.IconsFont);
-		dc.drawText(width / 2 - 34, y + 2, font, 88.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
-		
-		// Draw calories
-		var calories = activity.calories;
-		if (calories > 99999) {
-			calories = 99999;
-		}
+		var calories = ActivityMonitor.getInfo().calories;
+		calories = calories > 99999 ? 99999 : calories;  
 		calories = calories.format("%04d");
-		font = Ui.loadResource(Rez.Fonts.Tech24Font);
-		dc.drawText(width / 2, y + 3, font, calories, Graphics.TEXT_JUSTIFY_CENTER);
 		
-		// Draw units
-		font = Ui.loadResource(Rez.Fonts.Tech16Font);
-		var fontHeight = dc.getFontHeight(font);
-		dc.drawText(width / 2 + 45, y + 6, font, "KC", Graphics.TEXT_JUSTIFY_RIGHT);		
+		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _caloriesFont, calories, Graphics.TEXT_JUSTIFY_CENTER);
+	}
+	
+	function drawIcon(dc) {
+		var x = _screenWidth / 2 - 34, y = _screenHeight - 27;
+		
+		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _iconFont, ICON_CALORIES, Graphics.TEXT_JUSTIFY_CENTER);			
+	}
+	
+	function drawUnits(dc) {
+		var x = _screenWidth / 2 + 45, y = _screenHeight - 23;
+		
+		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _unitsFont, "KC", Graphics.TEXT_JUSTIFY_RIGHT);					
 	}
 }

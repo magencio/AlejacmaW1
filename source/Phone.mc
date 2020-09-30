@@ -2,32 +2,43 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class Phone extends Ui.Drawable {
-	hidden var _color, _inactiveColor;
-	hidden var _x, _y;
+	hidden var _foregroundColor, _foregroundDisabledColor;
+	hidden var _notificationsFont, _iconFont;
 	
-	function initialize(params) {
-		Drawable.initialize(params);
+	const ICON_PHONE = 107.toChar(); // 'k'
+	
+	function initialize() {
+		Drawable.initialize({ :identifier => "Phone" });
 		
-		_color = params.get(:color);
-		_inactiveColor = params.get(:inactiveColor);
-		_x = params.get(:x);
-		_y = params.get(:y);
+		_foregroundColor = Graphics.COLOR_WHITE;
+		_foregroundDisabledColor = Graphics.COLOR_LT_GRAY;
+		
+		_notificationsFont = Ui.loadResource(Rez.Fonts.Tech18Font);
+		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
-		var settings = System.getDeviceSettings();
-		
-		// Draw number of notifications
-		var notifications = settings.notificationCount;
-		dc.setColor(notifications > 0 ? _color: _inactiveColor, Graphics.COLOR_TRANSPARENT);
-		var font = Ui.loadResource(Rez.Fonts.Tech18Font);
-		var fontHeight = dc.getFontHeight(font);
-        dc.drawText(_x - 1, _y - fontHeight / 2, font, notifications.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT);
-		
-		// Draw phone icon
-		font = Ui.loadResource(Rez.Fonts.IconsFont);
-		fontHeight = dc.getFontHeight(font);
-		dc.setColor(settings.phoneConnected ? _color : _inactiveColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(_x + 1, _y - fontHeight / 2 - 1, font, 107.toChar(), Graphics.TEXT_JUSTIFY_LEFT);	
+		drawNotifications(dc);
+		drawPhoneConnected(dc);
+	}
+	
+	function drawNotifications(dc) {
+		var x = 68, y = 229;
+
+		var notifications = System.getDeviceSettings().notificationCount;
+		var color = notifications > 0 ? _foregroundColor: _foregroundDisabledColor;
+		notifications = notifications.format("%02d");
+
+		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, _notificationsFont, notifications, Graphics.TEXT_JUSTIFY_RIGHT);
+	}
+	
+	function drawPhoneConnected(dc) {
+		var x = 70, y = 227;
+
+		var phoneConnected = System.getDeviceSettings().phoneConnected;
+
+		dc.setColor(phoneConnected ? _foregroundColor : _foregroundDisabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _iconFont, ICON_PHONE, Graphics.TEXT_JUSTIFY_LEFT);	
 	}
 }

@@ -5,97 +5,78 @@ using Toybox.Time.Gregorian;
 using Toybox.WatchUi as Ui;
 
 class DateTime extends Ui.Drawable {
-	hidden var _borderColor, _backgroundColor, _color, _disabledColor;
+	hidden var _areaForegroundColor, _areaDisabledColor, _ampmColor;
 	hidden var _y;
-	hidden var _height;
-	hidden var _border;
+	hidden var _screenWidth, _height;
+	hidden var _timeFont, _ampmFont, _dateFont, _iconFont;
+	
+	const ICON_ALARM = 82.toChar(); // 'R' 
 
-	function initialize(params) {
-		Drawable.initialize(params);
+	function initialize() {
+		Drawable.initialize({ :identifier => "DateTime" });
 		
-		_borderColor = params.get(:borderColor);
-		_backgroundColor = params.get(:backgroundColor);
-		_color = params.get(:color);
-		_disabledColor = params.get(:disabledColor);
-		_y = params.get(:y);
-		_height = params.get(:height);
-		_border = params.get(:border);
+		_areaForegroundColor = Graphics.COLOR_BLACK;
+		_areaDisabledColor = Graphics.COLOR_LT_GRAY;
+		_ampmColor = Graphics.COLOR_LT_GRAY;
+		
+		_height = 70;		
+		_screenWidth = System.getDeviceSettings().screenWidth;
+		
+		_timeFont = Ui.loadResource(Rez.Fonts.Tech60Font);
+		_ampmFont = Ui.loadResource(Rez.Fonts.Tech18Font);
+		_dateFont = _ampmFont;
+		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
-		var width = dc.getWidth();
+		var clockTime = System.getClockTime();
+		var is24Hour = System.getDeviceSettings().is24Hour;
 		
-		var clockTime = System.getClockTime();		
-		var date = Gregorian.info(Time.now(), Time.FORMAT_LONG);
-		var settings = System.getDeviceSettings();
-		
-		// Draw background
-		dc.setColor(_borderColor, Graphics.COLOR_TRANSPARENT);
-		dc.fillPolygon([
-			[0, _y + 25],
-			[82, _y + 25],
-			[112, _y],
-			[width - 38, _y],
-			[width - 34, _y + 4],
-			[width - 34, _y + _height - 1],
-			[90, _y + _height - 1],
-			[86, _y + _height - 5],
-			[86, _y + _height - 16],
-			[82, _y + _height - 20],
-			[0, _y + _height - 20],
-		]);
-		
-		dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);		
-		dc.fillPolygon([
-			[0, _y + 25 + _border],
-			[83, _y + 25 + _border],
-			[113, _y + _border],
-			[width - _border - 38, _y + _border],
-			[width - _border - 34, _y + _border + 4],
-			[width - _border - 34, _y + _height - _border - 1],
-			[91, _y + _height - _border - 1],
-			[86 + _border, _y + _height - _border - 4],
-			[86 + _border, _y + _height - _border - 15],
-			[83, _y + _height - _border - 20],
-			[0, _y + _height - _border - 20],
-		]);
-		
-		// Draw current time
-        var hours = clockTime.hour;
-        if (!settings.is24Hour) {
-            if (hours > 12) {
-                hours = hours - 12;
-            }
-        }
+		drawTime(dc, clockTime, is24Hour);
+		if (!is24Hour) {		
+			drawAMPM(dc, clockTime);
+		}
+		drawDate(dc);
+		drawAlarm(dc);
+  	}
+  	
+  	function drawTime(dc, clockTime, is24Hour) {
+		var x = _screenWidth / 2 + 36 - (is24Hour ? 0 : 4), y = 183;
+
+  		var hours = clockTime.hour;
+  		hours = !is24Hour && hours > 12 ? hours - 12 : hours; 
         var time = Lang.format("$1$:$2$", [hours, clockTime.min.format("%02d")]);
         
-        dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-        var font = Ui.loadResource(Rez.Fonts.Tech60Font);
-        var fontHeight = dc.getFontHeight(font);
-        var xOffset = settings.is24Hour ? 0 : 4; 
-        var y = _y + _height / 2 - fontHeight / 2;
-		dc.drawText(width / 2 + 36 - xOffset, y, font, time, Graphics.TEXT_JUSTIFY_CENTER);
-		
-		// Draw AM/PM	
-        font = Ui.loadResource(Rez.Fonts.Tech18Font);
-        dc.setColor(_disabledColor, Graphics.COLOR_TRANSPARENT);
-        if (!settings.is24Hour) {
-        	if (clockTime.hour > 12) {
-	        	dc.drawText(width - _border - 42, y, font, "P", Graphics.TEXT_JUSTIFY_CENTER);
-	        } else {
-	        	dc.drawText(width - _border - 42, y, font, "A", Graphics.TEXT_JUSTIFY_CENTER);
-	        }
-			dc.drawText(width - _border - 42, y + 14, font, "M", Graphics.TEXT_JUSTIFY_CENTER);
-	    }
-        
-        // Draw date
-        dc.setColor(_color, Graphics.COLOR_TRANSPARENT);
-        var day = Lang.format("$1$ $2$ $3$", [date.day_of_week, date.day, date.month]);
-        dc.drawText(width / 2 - 32, _y + _height / 2 - 7, font, day, Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _timeFont, time, Graphics.TEXT_JUSTIFY_CENTER);  	
+  	} 
+  	
+  	function drawAMPM(dc, clockTime) {  		
+  		var x = _screenWidth - 44, y = 183;
+  		
+  		var first = clockTime.hour > 12 ? "P" : "A";
+  		
+        dc.setColor(_ampmColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, _ampmFont, first, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.drawText(x, y + 14, _ampmFont, "M", Graphics.TEXT_JUSTIFY_CENTER);
+  	}
+  	
+  	function drawDate(dc) {
+  		var x = _screenWidth / 2 - 32, y = 206;
 
-		// Draw alarm icon
-		dc.setColor(settings.alarmCount > 0? _color : _disabledColor, Graphics.COLOR_TRANSPARENT);
-		font = Ui.loadResource(Rez.Fonts.IconsFont);
-		dc.drawText(width / 2 - 32, _y + _height / 2 + 10, font, 82.toChar(), Graphics.TEXT_JUSTIFY_RIGHT);	
+		var date = Gregorian.info(Time.now(), Time.FORMAT_LONG);
+        var day = Lang.format("$1$ $2$ $3$", [date.day_of_week, date.day, date.month]);
+        
+        dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, _dateFont, day, Graphics.TEXT_JUSTIFY_RIGHT);  	
+  	}
+  	
+  	function drawAlarm(dc) {
+  		var x = _screenWidth / 2 - 32, y = 223;
+  		
+		var color = System.getDeviceSettings().alarmCount > 0 ? _areaForegroundColor : _areaDisabledColor;
+		
+		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _iconFont, ICON_ALARM, Graphics.TEXT_JUSTIFY_RIGHT);
   	}
 }
