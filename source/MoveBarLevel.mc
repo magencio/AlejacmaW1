@@ -10,8 +10,8 @@ class MoveBarLevel extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "MoveBarLevel" });
 		
-		_areaBackgroundColor = Graphics.COLOR_WHITE;
-		_areaBorderColor = Graphics.COLOR_LT_GRAY;
+		_areaBackgroundColor = Application.getApp().getProperty("AreaBackgroundColor");
+		_areaBorderColor = Application.getApp().getProperty("AreaBorderColor");
 		_border = Background.BORDER;
 	}
 	

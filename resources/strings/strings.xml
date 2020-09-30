@@ -4,13 +4,35 @@
 
     <string id="BackgroundColorTitle">Background Color</string>
     <string id="ForegroundColorTitle">Foreground Color</string>
-
-    <string id="ColorBlack">Black</string>
-    <string id="ColorDarkGray">Dark Gray</string>
-    <string id="ColorLightGray">Light Gray</string>
+    <string id="DisabledColorTitle">Disabled Color</string>
+	<string id="LineColorTitle">Line Color</string>
+	<string id="OrnamentColorTitle">Ornament Color</string>
+	<string id="AreaBorderColorTitle">Area Border Color</string>
+	<string id="AreaBackgroundColorTitle">Area Background Color</string>
+	<string id="AreaForegroundColorTitle">Area Foreground Color</string>
+	<string id="AreaDisabledColorTitle">Area Disabled Color</string>
+	<string id="LowTemperatureColorTitle">Low Temperature Color</string>
+	<string id="HighTemperatureColorTitle">High Temperature Color</string>
+	<string id="StepsGoalColorTitle">Steps Goal Color</string>
+	<string id="StepsBarColorTitle">Steps Bar Color</string>
+	<string id="BatteryChargingColorTitle">Battery Charging Color</string>
+	<string id="HeartRateColorTitle">Heart Rate Color</string>
+	<string id="AmPmColorTitle">AM/PM Color</string>
+    
     <string id="ColorWhite">White</string>
-    <string id="ColorBlue">Blue</string>
+    <string id="ColorLightGray">Light Gray</string>
+    <string id="ColorDarkGray">Dark Gray</string>
+    <string id="ColorBlack">Black</string>
     <string id="ColorRed">Red</string>
+    <string id="ColorDarkRed">Dark Red</string>
+    <string id="ColorOrange">Orange</string>
+    <string id="ColorYellow">Yellow</string>
+    <string id="ColorGreen">Green</string>
+    <string id="ColorDarkGreen">Dark Green</string>
+    <string id="ColorBlue">Blue</string>
+    <string id="ColorDarkBlue">Dark Blue</string>
+    <string id="ColorPurple">Purple</string>
+    <string id="ColorPink">Pink</string>    
     
     <string id="ConditionClear">Clear</string>
     <string id="ConditionPartlyCloudy">Partly cloudy</string>

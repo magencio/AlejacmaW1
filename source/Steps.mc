@@ -10,8 +10,8 @@ class Steps extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Steps" });
 		
-		_foregroundColor = Graphics.COLOR_WHITE;
-		_stepsGoalColor = Graphics.COLOR_ORANGE;
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
 		
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		

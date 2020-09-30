@@ -9,9 +9,9 @@ class Battery extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Battery" });
 		
-		_foregroundColor = Graphics.COLOR_WHITE;
-		_batteryChargingColor = Graphics.COLOR_GREEN;
-		_backgroundColor = Graphics.COLOR_BLACK;		
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_batteryChargingColor = Application.getApp().getProperty("BatteryChargingColor");
+		_backgroundColor = Application.getApp().getProperty("BackgroundColor");
 		
 		_batteryPercentageFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 	}

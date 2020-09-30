@@ -12,8 +12,8 @@ class HeartRate extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "HeartRate" });
 			
-		_areaForegroundColor = Graphics.COLOR_BLACK;
-		_heartRateColor = Graphics.COLOR_RED;
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_heartRateColor = Application.getApp().getProperty("HeartRateColor");
 		
 		_width = 104;
 		

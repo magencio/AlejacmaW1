@@ -70,11 +70,10 @@ class Weather extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Weather" });
 		
-		_areaForegroundColor = Graphics.COLOR_BLACK;
-		_lowTemperatureColor = Graphics.COLOR_DK_BLUE;
-		_highTemperatureColor = Graphics.COLOR_ORANGE;
-				
-		
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_lowTemperatureColor = Application.getApp().getProperty("LowTemperatureColor");
+		_highTemperatureColor = Application.getApp().getProperty("HighTemperatureColor");
+						
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		_border = Background.BORDER;
 		

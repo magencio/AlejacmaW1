@@ -4,13 +4,35 @@
 
     <string id="BackgroundColorTitle">Color de Fondo</string>
     <string id="ForegroundColorTitle">Color de Primer Plano</string>
-
-    <string id="ColorBlack">Negro</string>
-    <string id="ColorDarkGray">Gris Oscuro</string>
-    <string id="ColorLightGray">Gris Claro</string>
+    <string id="DisabledColorTitle">Color de Deshabilitado</string>
+	<string id="LineColorTitle">Color de Linea</string>
+	<string id="OrnamentColorTitle">Color de adorno</string>
+	<string id="AreaBorderColorTitle">Color de Borde de Area</string>
+	<string id="AreaBackgroundColorTitle">Color de Fondo de Area</string>
+	<string id="AreaForegroundColorTitle">Color de Primer Plano de Area</string>
+	<string id="AreaDisabledColorTitle">Color de Area Deshabilitado</string>
+	<string id="LowTemperatureColorTitle">Color de Temperatura Minima</string>
+	<string id="HighTemperatureColorTitle">Color de Temperatura Maxima</string>
+	<string id="StepsGoalColorTitle">Color de Objetivo de Pasos</string>
+	<string id="StepsBarColorTitle">Color de Barras de Pasos</string>
+	<string id="BatteryChargingColorTitle">Color de Batería Cargando</string>
+	<string id="HeartRateColorTitle">Color de Frencuencia Cardiaca</string>
+	<string id="AmPmColorTitle">Color de AM/PM</string>    
+    
     <string id="ColorWhite">Blanco</string>
-    <string id="ColorBlue">Azul</string>
+    <string id="ColorLightGray">Gris Claro</string>
+    <string id="ColorDarkGray">Gris Oscuro</string>
+    <string id="ColorBlack">Negro</string>
     <string id="ColorRed">Rojo</string>
+    <string id="ColorDarkRed">Rojo Oscuro</string>
+    <string id="ColorOrange">Naranja</string>
+    <string id="ColorYellow">Amarillo</string>
+    <string id="ColorGreen">Verde</string>
+    <string id="ColorDarkGreen">Verde Oscuro</string>
+    <string id="ColorBlue">Azul</string>
+    <string id="ColorDarkBlue">Azul Oscuro</string>
+    <string id="ColorPurple">Purpura</string>
+    <string id="ColorPink">Rosa</string>    
     
     <string id="ConditionClear">Despejado</string>
     <string id="ConditionPartlyCloudy">Parcialmente nublado</string>

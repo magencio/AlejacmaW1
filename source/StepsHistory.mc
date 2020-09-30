@@ -17,9 +17,9 @@ class StepsHistory extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "StepsHistory" });
 		
-		_stepsBarColor = Graphics.COLOR_LT_GRAY;
-		_stepsGoalColor = Graphics.COLOR_ORANGE;
-		_foregroundColor = Graphics.COLOR_WHITE;
+		_stepsBarColor = Application.getApp().getProperty("StepsBarColor");
+		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
 				
 		_border = Background.BORDER;
 		
@@ -71,7 +71,7 @@ class StepsHistory extends Ui.Drawable {
 	}
 	
 	function drawHistoryBars(dc, topSteps) {	
-		var x = 110 + _border + PADDING, y = 112;
+		var x = 110 + _border + PADDING, y = 111;
 	
 		var history = ActivityMonitor.getHistory();
 		if (history == null) {
@@ -106,7 +106,7 @@ class StepsHistory extends Ui.Drawable {
 	}
 	
 	function drawTodayBar(dc, topSteps) {
-		var x = 110 + _border + (MAX_BARS - 1) * BAR_WIDTH + (MAX_BARS) * PADDING, y = 112;
+		var x = 110 + _border + (MAX_BARS - 1) * BAR_WIDTH + (MAX_BARS) * PADDING, y = 111;
 	
 		var activity = ActivityMonitor.getInfo();
 				

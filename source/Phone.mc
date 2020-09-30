@@ -2,7 +2,7 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class Phone extends Ui.Drawable {
-	hidden var _foregroundColor, _foregroundDisabledColor;
+	hidden var _foregroundColor, _disabledColor;
 	hidden var _notificationsFont, _iconFont;
 	
 	const ICON_PHONE = 107.toChar(); // 'k'
@@ -10,8 +10,8 @@ class Phone extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Phone" });
 		
-		_foregroundColor = Graphics.COLOR_WHITE;
-		_foregroundDisabledColor = Graphics.COLOR_LT_GRAY;
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_disabledColor = Application.getApp().getProperty("DisabledColor");
 		
 		_notificationsFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
@@ -26,7 +26,7 @@ class Phone extends Ui.Drawable {
 		var x = 68, y = 229;
 
 		var notifications = System.getDeviceSettings().notificationCount;
-		var color = notifications > 0 ? _foregroundColor: _foregroundDisabledColor;
+		var color = notifications > 0 ? _foregroundColor: _disabledColor;
 		notifications = notifications.format("%02d");
 
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
@@ -38,7 +38,7 @@ class Phone extends Ui.Drawable {
 
 		var phoneConnected = System.getDeviceSettings().phoneConnected;
 
-		dc.setColor(phoneConnected ? _foregroundColor : _foregroundDisabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(phoneConnected ? _foregroundColor : _disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _iconFont, ICON_PHONE, Graphics.TEXT_JUSTIFY_LEFT);	
 	}
 }

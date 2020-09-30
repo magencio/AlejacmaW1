@@ -1,6 +1,20 @@
 <properties>
 
     <property id="BackgroundColor" type="number">0x000000</property>
-    <property id="ForegroundColor" type="number">0xFF0000</property>
-
+    <property id="ForegroundColor" type="number">0xFFFFFF</property>
+    <property id="DisabledColor" type="number">0xAAAAAA</property>
+	<property id="LineColor" type="number">0xFFFFFF</property>
+	<property id="OrnamentColor" type="number">0xFFFFFF</property>
+	<property id="AreaBorderColor" type="number">0xAAAAAA</property>
+	<property id="AreaBackgroundColor" type="number">0xFFFFFF</property>
+	<property id="AreaForegroundColor" type="number">0x000000</property>
+	<property id="AreaDisabledColor" type="number">0xAAAAAA</property>
+	<property id="LowTemperatureColor" type="number">0x0000FF</property>
+	<property id="HighTemperatureColor" type="number">0xFF5500</property>
+	<property id="StepsGoalColor" type="number">0xFF5500</property>
+	<property id="StepsBarColor" type="number">0xAAAAAA</property>
+	<property id="BatteryChargingColor" type="number">0x00FF00</property>
+	<property id="HeartRateColor" type="number">0xFF0000</property>
+	<property id="AmPmColor" type="number">0xAAAAAA</property>
+		
 </properties>

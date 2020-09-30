@@ -12,10 +12,10 @@ class Background extends WatchUi.Drawable {
         Drawable.initialize({ :identifier => "Background" });
         
         _backgroundColor = Application.getApp().getProperty("BackgroundColor");
-        _areaBackgroundColor = Graphics.COLOR_WHITE;
-        _areaBorderColor = Graphics.COLOR_LT_GRAY;
-        _lineColor = Graphics.COLOR_WHITE;
-        _ornamentColor = Graphics.COLOR_WHITE;
+        _areaBackgroundColor = Application.getApp().getProperty("AreaBackgroundColor");
+        _areaBorderColor = Application.getApp().getProperty("AreaBorderColor");
+        _lineColor = Application.getApp().getProperty("LineColor");
+        _ornamentColor = Application.getApp().getProperty("OrnamentColor");
         
 		_screenHeight = System.getDeviceSettings().screenHeight;
 		_screenWidth = System.getDeviceSettings().screenWidth;

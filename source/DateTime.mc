@@ -15,9 +15,9 @@ class DateTime extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "DateTime" });
 		
-		_areaForegroundColor = Graphics.COLOR_BLACK;
-		_areaDisabledColor = Graphics.COLOR_LT_GRAY;
-		_ampmColor = Graphics.COLOR_LT_GRAY;
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_areaDisabledColor = Application.getApp().getProperty("AreaDisabledColor");
+		_ampmColor = Application.getApp().getProperty("AmPmColor");
 		
 		_height = 70;		
 		_screenWidth = System.getDeviceSettings().screenWidth;
