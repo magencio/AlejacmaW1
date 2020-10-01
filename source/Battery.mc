@@ -2,8 +2,6 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class Battery extends Ui.Drawable {
-	hidden var _foregroundColor, _batteryChargingColor, _backgroundColor;
-	hidden var x, y;
 	hidden var _batteryPercentageFont;
 	
 	function initialize() {
@@ -12,11 +10,7 @@ class Battery extends Ui.Drawable {
 		_batteryPercentageFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 	}
 	
-	function draw(dc) {
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		_batteryChargingColor = Application.getApp().getProperty("BatteryChargingColor");
-		_backgroundColor = Application.getApp().getProperty("BackgroundColor");
-	
+	function draw(dc) {	
 		drawIcon(dc);
 		drawBattery(dc);
 	}
@@ -24,7 +18,7 @@ class Battery extends Ui.Drawable {
 	function drawIcon(dc) {
 		var x = 250, y = 80;
 		
-		dc.setColor(System.getSystemStats().charging ? _batteryChargingColor : _foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(System.getSystemStats().charging ? $.batteryChargingColor : $.foregroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x - 13, y + 3],
 			[x - 12, y + 2],
@@ -46,7 +40,7 @@ class Battery extends Ui.Drawable {
 		var battery = System.getSystemStats().battery;
 		battery = battery.format("%d");
 		
-    	dc.setColor(_backgroundColor, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor($.backgroundColor, Graphics.COLOR_TRANSPARENT);
 	    dc.drawText(x, y, _batteryPercentageFont, battery, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

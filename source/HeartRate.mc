@@ -3,11 +3,8 @@ using Toybox.ActivityMonitor;
 using Toybox.WatchUi as Ui;
 
 class HeartRate extends Ui.Drawable {
-	hidden var _areaForegroundColor, _heartRateColor;
 	hidden var _width;
 	hidden var _titleFont, _heartRateFont, _iconFont;
-	
-	const ICON_HEART = 109.toChar(); // 'm' 
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "HeartRate" });
@@ -20,9 +17,6 @@ class HeartRate extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
-		_heartRateColor = Application.getApp().getProperty("HeartRateColor");
-	
 		drawTopTitle(dc);
 		drawBottomTitle(dc);
 		drawHeartRate(dc);
@@ -34,8 +28,8 @@ class HeartRate extends Ui.Drawable {
 		var title = Ui.loadResource(Rez.Strings.HeartRateTopTitle);
 		var titleWidth = dc.getTextWidthInPixels(title, _titleFont);
 		
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x - titleWidth / 2 - 2, y - 2, _iconFont, ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x - titleWidth / 2 - 2, y - 2, _iconFont, $.ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);		
 	
 		dc.drawText(x + 9, y, _titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);
 	}
@@ -45,7 +39,7 @@ class HeartRate extends Ui.Drawable {
 		
 		var title = Ui.loadResource(Rez.Strings.HeartRateBottomTitle);
 		
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
@@ -68,7 +62,7 @@ class HeartRate extends Ui.Drawable {
 		
 		heartRate = (heartRate != null) ? heartRate.format("%02d") : "--";
 		
-		dc.setColor(_heartRateColor, Graphics.COLOR_TRANSPARENT);		
+		dc.setColor($.heartRateColor, Graphics.COLOR_TRANSPARENT);		
 		dc.drawText(x, y, _heartRateFont, heartRate, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

@@ -5,8 +5,6 @@ using Toybox.Time.Gregorian;
 using Toybox.WatchUi as Ui;
 
 class StepsHistory extends Ui.Drawable {
-	hidden var _stepsBarColor, _stepsGoalColor, _foregroundColor;
-	hidden var _border;
 	hidden var _daysFont;
 	
 	const MAX_BARS = 8;
@@ -17,16 +15,10 @@ class StepsHistory extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "StepsHistory" });
 		
-		_border = Background.BORDER;
-		
 		_daysFont = Ui.loadResource(Rez.Fonts.Tech16Font);		
 	}
 
 	function draw(dc) {
-		_stepsBarColor = Application.getApp().getProperty("StepsBarColor");
-		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-				
 		drawDays(dc);
 		var topSteps = getTopSteps();		
 		drawHistoryBars(dc, topSteps);
@@ -55,11 +47,11 @@ class StepsHistory extends Ui.Drawable {
 	}
 	
 	function drawDays(dc) {
-		var x = 110 + _border + PADDING + BAR_WIDTH / 2, y = 151;
+		var x = 110 + $.BORDER + PADDING + BAR_WIDTH / 2, y = 151;
 		
 		var now = Time.now();
 
-		dc.setColor(_foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
 		
 		for (var i = MAX_BARS - 1, textX = x; i >= 0; i -= 1, textX += BAR_WIDTH + PADDING) {
 			
@@ -71,7 +63,7 @@ class StepsHistory extends Ui.Drawable {
 	}
 	
 	function drawHistoryBars(dc, topSteps) {	
-		var x = 110 + _border + PADDING, y = 111;
+		var x = 110 + $.BORDER + PADDING, y = 111;
 	
 		var history = ActivityMonitor.getHistory();
 		if (history == null) {
@@ -88,16 +80,16 @@ class StepsHistory extends Ui.Drawable {
 					var stepHeight = BAR_HEIGHT * history[i].steps / topSteps; 
 					
 					// Bar
-					var color = history[i].steps >= history[i].stepGoal ? _stepsGoalColor : _stepsBarColor;			
+					var color = history[i].steps >= history[i].stepGoal ? $.stepsGoalColor : $.stepsBarColor;			
 					dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-        			dc.fillRectangle(barX, y + _border + PADDING + BAR_HEIGHT - stepHeight, BAR_WIDTH, stepHeight);		
+        			dc.fillRectangle(barX, y + $.BORDER + PADDING + BAR_HEIGHT - stepHeight, BAR_WIDTH, stepHeight);		
         			
         			// Goal line
 					if (history[i].steps < history[i].stepGoal) {
 						var goalHeight = BAR_HEIGHT * history[i].stepGoal / topSteps;
-						var goalY = y + _border + PADDING + BAR_HEIGHT - goalHeight;
+						var goalY = y + $.BORDER + PADDING + BAR_HEIGHT - goalHeight;
 
-						dc.setColor(_stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+						dc.setColor($.stepsGoalColor, Graphics.COLOR_TRANSPARENT);
 						dc.drawLine(barX, goalY, barX + BAR_WIDTH - 1, goalY);
 					}				        						
 				}
@@ -106,22 +98,22 @@ class StepsHistory extends Ui.Drawable {
 	}
 	
 	function drawTodayBar(dc, topSteps) {
-		var x = 110 + _border + (MAX_BARS - 1) * BAR_WIDTH + (MAX_BARS) * PADDING, y = 111;
+		var x = 110 + $.BORDER + (MAX_BARS - 1) * BAR_WIDTH + (MAX_BARS) * PADDING, y = 111;
 	
 		var activity = ActivityMonitor.getInfo();
 				
 		// Bar
-		var color = activity.steps >= activity.stepGoal ? _stepsGoalColor : _stepsBarColor;
+		var color = activity.steps >= activity.stepGoal ? $.stepsGoalColor : $.stepsBarColor;
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 
 		var stepHeight = BAR_HEIGHT * activity.steps / topSteps;
-		dc.fillRectangle(x, y + _border + PADDING + BAR_HEIGHT - stepHeight, BAR_WIDTH, stepHeight);
+		dc.fillRectangle(x, y + $.BORDER + PADDING + BAR_HEIGHT - stepHeight, BAR_WIDTH, stepHeight);
 		
 		// Goal line
 		if (activity.steps < activity.stepGoal) {
-			dc.setColor(_stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+			dc.setColor($.stepsGoalColor, Graphics.COLOR_TRANSPARENT);
 			var goalHeight = BAR_HEIGHT * activity.stepGoal / topSteps;
-			var goalY = y + _border + PADDING + BAR_HEIGHT - goalHeight;
+			var goalY = y + $.BORDER + PADDING + BAR_HEIGHT - goalHeight;
 			dc.drawLine(x, goalY, x + BAR_WIDTH, goalY);
 		}	
 	}

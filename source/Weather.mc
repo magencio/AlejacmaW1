@@ -5,9 +5,6 @@ using Toybox.Weather;
 using Toybox.WatchUi as Ui;
 
 class Weather extends Ui.Drawable {
-	hidden var _areaForegroundColor, _lowTemperatureColor, _highTemperatureColor;
-	hidden var _screenHeight, _screenWidth;
-	hidden var _border;
 	hidden var _font;
 	
 	const CONDITIONS = [
@@ -70,17 +67,10 @@ class Weather extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Weather" });
 		
-		_screenWidth = System.getDeviceSettings().screenWidth;
-		_border = Background.BORDER;
-		
 		_font = Ui.loadResource(Rez.Fonts.Tech18Font);				
 	}
 	
 	function draw(dc) {
-		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
-		_lowTemperatureColor = Application.getApp().getProperty("LowTemperatureColor");
-		_highTemperatureColor = Application.getApp().getProperty("HighTemperatureColor");
-						
 		if (Weather.getCurrentConditions() == null) {
 			drawUnavailableWeather(dc);
 			return;
@@ -95,11 +85,11 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawUnavailableWeather(dc) {
-		var x = _screenWidth / 2 + 20, y= 57;
+		var x = $.SCREEN_WIDTH / 2 + 20, y= 57;
 		
 		var message = Ui.loadResource(Rez.Strings.NoWeatherData);
 
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, message, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
@@ -109,26 +99,26 @@ class Weather extends Ui.Drawable {
 		var condition = Weather.getCurrentConditions().condition;		
 		condition = Ui.loadResource(CONDITIONS[condition]);
 
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, condition, Graphics.TEXT_JUSTIFY_LEFT);	
 	}
 	
 	function drawCurrentTemperature(dc) {
-		var x = _screenWidth / 2 - 34, y = 57;
+		var x = $.SCREEN_WIDTH / 2 - 34, y = 57;
 
-		drawTemperature(dc, _areaForegroundColor, x, y, Weather.getCurrentConditions().temperature);
+		drawTemperature(dc, $.areaForegroundColor, x, y, Weather.getCurrentConditions().temperature);
 	}
 	
 	function drawLowTemperature(dc) {
-		var x = _screenWidth / 2 + 11, y = 57;
+		var x = $.SCREEN_WIDTH / 2 + 11, y = 57;
 
-		drawTemperature(dc, _lowTemperatureColor, x, y, Weather.getCurrentConditions().lowTemperature);
+		drawTemperature(dc, $.lowTemperatureColor, x, y, Weather.getCurrentConditions().lowTemperature);
 	}
 	
 	function drawHighTemperature(dc) {
-		var x = _screenWidth / 2 + 56, y = 57;
+		var x = $.SCREEN_WIDTH / 2 + 56, y = 57;
 
-		drawTemperature(dc, _highTemperatureColor, x, y, Weather.getCurrentConditions().highTemperature);
+		drawTemperature(dc, $.highTemperatureColor, x, y, Weather.getCurrentConditions().highTemperature);
 	}
 	
 	function drawTemperature(dc, color, x, y, temperature) {	
@@ -160,7 +150,7 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawPrecipitationChance(dc) {
-		var x = _screenWidth / 2 + 101, y = 57;
+		var x = $.SCREEN_WIDTH / 2 + 101, y = 57;
 		
 		// Precipitation chance
 		var precipitationChance = Weather.getCurrentConditions().precipitationChance;			
@@ -172,7 +162,7 @@ class Weather extends Ui.Drawable {
 		
 		x = x - width / 2;
 
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, precipitationChance, Graphics.TEXT_JUSTIFY_LEFT);
 
 		// Percentage glyph (not available in any font under resources/fonts)
@@ -184,7 +174,7 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawLocation(dc) {
-		var x = _screenWidth / 2 + 28, y = 75;
+		var x = $.SCREEN_WIDTH / 2 + 28, y = 75;
 
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As Tech18Font by default doesn't support Spanish accents, I've modified the
@@ -194,7 +184,7 @@ class Weather extends Ui.Drawable {
 		var comma = observationLocationName.find(",");
 		observationLocationName = observationLocationName.substring(0, comma == null || comma > 15 ? 15 : comma);
 
-		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }

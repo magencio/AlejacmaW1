@@ -2,10 +2,7 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class Phone extends Ui.Drawable {
-	hidden var _foregroundColor, _disabledColor;
 	hidden var _notificationsFont, _iconFont;
-	
-	const ICON_PHONE = 107.toChar(); // 'k'
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "Phone" });
@@ -15,9 +12,6 @@ class Phone extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		_disabledColor = Application.getApp().getProperty("DisabledColor");
-		
 		drawNotifications(dc);
 		drawPhoneConnected(dc);
 	}
@@ -26,7 +20,7 @@ class Phone extends Ui.Drawable {
 		var x = 68, y = 229;
 
 		var notifications = System.getDeviceSettings().notificationCount;
-		var color = notifications > 0 ? _foregroundColor: _disabledColor;
+		var color = notifications > 0 ? $.foregroundColor: $.disabledColor;
 		notifications = notifications.format("%02d");
 
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
@@ -38,7 +32,7 @@ class Phone extends Ui.Drawable {
 
 		var phoneConnected = System.getDeviceSettings().phoneConnected;
 
-		dc.setColor(phoneConnected ? _foregroundColor : _disabledColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, _iconFont, ICON_PHONE, Graphics.TEXT_JUSTIFY_LEFT);	
+		dc.setColor(phoneConnected ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, _iconFont, $.ICON_PHONE, Graphics.TEXT_JUSTIFY_LEFT);	
 	}
 }

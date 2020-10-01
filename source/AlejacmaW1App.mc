@@ -9,6 +9,7 @@ class AlejacmaW1App extends Application.AppBase {
 
     // onStart() is called on application start up
     function onStart(state) {
+    	$.updateSettings();
     }
 
     // onStop() is called when your application is exiting
@@ -22,7 +23,7 @@ class AlejacmaW1App extends Application.AppBase {
 
     // New app settings have been received so trigger a UI update
     function onSettingsChanged() {
+    	$.updateSettings();
         WatchUi.requestUpdate();
     }
-
 }
