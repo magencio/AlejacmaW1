@@ -16,7 +16,6 @@ class AlejacmaW1View extends WatchUi.WatchFace {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-    	System.println("show");	
     }
 
     // Update the view

@@ -7,7 +7,6 @@ class Battery extends Ui.Drawable {
 	hidden var _batteryPercentageFont;
 	
 	function initialize() {
-		System.println("initialize");
 		Drawable.initialize({ :identifier => "Battery" });
 				
 		_batteryPercentageFont = Ui.loadResource(Rez.Fonts.Tech18Font);
