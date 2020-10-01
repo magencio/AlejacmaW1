@@ -10,18 +10,18 @@ class Background extends WatchUi.Drawable {
 	
     function initialize() {
         Drawable.initialize({ :identifier => "Background" });
-        
-        _backgroundColor = Application.getApp().getProperty("BackgroundColor");
-        _areaBackgroundColor = Application.getApp().getProperty("AreaBackgroundColor");
-        _areaBorderColor = Application.getApp().getProperty("AreaBorderColor");
-        _lineColor = Application.getApp().getProperty("LineColor");
-        _ornamentColor = Application.getApp().getProperty("OrnamentColor");
-        
+                
 		_screenHeight = System.getDeviceSettings().screenHeight;
 		_screenWidth = System.getDeviceSettings().screenWidth;
     }
 
     function draw(dc) {
+        _backgroundColor = Application.getApp().getProperty("BackgroundColor");
+        _areaBackgroundColor = Application.getApp().getProperty("AreaBackgroundColor");
+        _areaBorderColor = Application.getApp().getProperty("AreaBorderColor");
+        _lineColor = Application.getApp().getProperty("LineColor");
+        _ornamentColor = Application.getApp().getProperty("OrnamentColor");
+
 		drawBackground(dc); 
 		drawStepsLine(dc);
 		drawWeatherArea(dc);       

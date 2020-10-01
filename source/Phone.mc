@@ -10,14 +10,14 @@ class Phone extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Phone" });
 		
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		_disabledColor = Application.getApp().getProperty("DisabledColor");
-		
 		_notificationsFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_disabledColor = Application.getApp().getProperty("DisabledColor");
+		
 		drawNotifications(dc);
 		drawPhoneConnected(dc);
 	}

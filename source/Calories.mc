@@ -9,9 +9,7 @@ class Calories extends Ui.Drawable {
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "Calories" });
-		
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		
+				
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		_screenHeight = System.getDeviceSettings().screenHeight;
 		
@@ -21,6 +19,8 @@ class Calories extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+	
 		drawCalories(dc);
 		drawIcon(dc);
 		drawUnits(dc);

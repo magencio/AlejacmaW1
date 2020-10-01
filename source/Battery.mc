@@ -7,16 +7,17 @@ class Battery extends Ui.Drawable {
 	hidden var _batteryPercentageFont;
 	
 	function initialize() {
+		System.println("initialize");
 		Drawable.initialize({ :identifier => "Battery" });
-		
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		_batteryChargingColor = Application.getApp().getProperty("BatteryChargingColor");
-		_backgroundColor = Application.getApp().getProperty("BackgroundColor");
-		
+				
 		_batteryPercentageFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 	}
 	
 	function draw(dc) {
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_batteryChargingColor = Application.getApp().getProperty("BatteryChargingColor");
+		_backgroundColor = Application.getApp().getProperty("BackgroundColor");
+	
 		drawIcon(dc);
 		drawBattery(dc);
 	}

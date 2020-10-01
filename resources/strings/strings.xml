@@ -2,6 +2,7 @@
 
     <string id="AppName">AlejacmaW1</string>
 
+	<!-- Settings: Titles -->
     <string id="BackgroundColorTitle">Background Color</string>
     <string id="ForegroundColorTitle">Foreground Color</string>
     <string id="DisabledColorTitle">Disabled Color</string>
@@ -19,6 +20,7 @@
 	<string id="HeartRateColorTitle">Heart Rate Color</string>
 	<string id="AmPmColorTitle">AM/PM Color</string>
     
+    <!-- Settings: Color names -->
     <string id="ColorWhite">White</string>
     <string id="ColorLightGray">Light Gray</string>
     <string id="ColorDarkGray">Dark Gray</string>
@@ -34,6 +36,7 @@
     <string id="ColorPurple">Purple</string>
     <string id="ColorPink">Pink</string>    
     
+    <!-- On-screen text: Weather conditions -->
     <string id="ConditionClear">Clear</string>
     <string id="ConditionPartlyCloudy">Partly cloudy</string>
     <string id="ConditionMostlyCloudy">Mostly cloudy</string>
@@ -89,7 +92,10 @@
     <string id="ConditionThinClouds">Thin clouds</string>
     <string id="ConditionUnknown">Unknown</string>
     
+    <!--  On-screen text: Titles -->
     <string id="HeartRateTopTitle">Heart</string>
     <string id="HeartRateBottomTitle">Rate</string>
 
+    <!--  On-screen text: Messages -->
+	<string id="NoWeatherData">No weather data</string>
 </strings>

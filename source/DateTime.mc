@@ -14,11 +14,7 @@ class DateTime extends Ui.Drawable {
 
 	function initialize() {
 		Drawable.initialize({ :identifier => "DateTime" });
-		
-		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
-		_areaDisabledColor = Application.getApp().getProperty("AreaDisabledColor");
-		_ampmColor = Application.getApp().getProperty("AmPmColor");
-		
+				
 		_height = 70;		
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		
@@ -29,6 +25,10 @@ class DateTime extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_areaDisabledColor = Application.getApp().getProperty("AreaDisabledColor");
+		_ampmColor = Application.getApp().getProperty("AmPmColor");
+	
 		var clockTime = System.getClockTime();
 		var is24Hour = System.getDeviceSettings().is24Hour;
 		

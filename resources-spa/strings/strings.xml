@@ -2,11 +2,12 @@
 
     <string id="AppName">AlejacmaW1</string>
 
+	<!-- Settings: Titles -->
     <string id="BackgroundColorTitle">Color de Fondo</string>
     <string id="ForegroundColorTitle">Color de Primer Plano</string>
     <string id="DisabledColorTitle">Color de Deshabilitado</string>
 	<string id="LineColorTitle">Color de Linea</string>
-	<string id="OrnamentColorTitle">Color de adorno</string>
+	<string id="OrnamentColorTitle">Color de Adorno</string>
 	<string id="AreaBorderColorTitle">Color de Borde de Area</string>
 	<string id="AreaBackgroundColorTitle">Color de Fondo de Area</string>
 	<string id="AreaForegroundColorTitle">Color de Primer Plano de Area</string>
@@ -19,6 +20,7 @@
 	<string id="HeartRateColorTitle">Color de Frencuencia Cardiaca</string>
 	<string id="AmPmColorTitle">Color de AM/PM</string>    
     
+    <!-- Settings: Color names -->
     <string id="ColorWhite">Blanco</string>
     <string id="ColorLightGray">Gris Claro</string>
     <string id="ColorDarkGray">Gris Oscuro</string>
@@ -34,6 +36,7 @@
     <string id="ColorPurple">Purpura</string>
     <string id="ColorPink">Rosa</string>    
     
+    <!-- On-screen text: Weather conditions -->
     <string id="ConditionClear">Despejado</string>
     <string id="ConditionPartlyCloudy">Parcialmente nublado</string>
     <string id="ConditionMostlyCloudy">Mayormente nublado</string>
@@ -89,7 +92,10 @@
     <string id="ConditionThinClouds">Nubes delgadas</string>
     <string id="ConditionUnknown">Desconocido</string>
 
+	<!--  On-screen text: Titles -->
     <string id="HeartRateTopTitle">Frec.</string>
     <string id="HeartRateBottomTitle">Cardiaca</string>
 
+    <!--  On-screen text: Messages -->
+	<string id="NoWeatherData">Sin datos del tiempo</string>
 </strings>

@@ -11,10 +11,7 @@ class HeartRate extends Ui.Drawable {
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "HeartRate" });
-			
-		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
-		_heartRateColor = Application.getApp().getProperty("HeartRateColor");
-		
+				
 		_width = 104;
 		
 		_titleFont = Ui.loadResource(Rez.Fonts.Tech18Font);
@@ -23,6 +20,9 @@ class HeartRate extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_heartRateColor = Application.getApp().getProperty("HeartRateColor");
+	
 		drawTopTitle(dc);
 		drawBottomTitle(dc);
 		drawHeartRate(dc);

@@ -70,10 +70,6 @@ class Weather extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "Weather" });
 		
-		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
-		_lowTemperatureColor = Application.getApp().getProperty("LowTemperatureColor");
-		_highTemperatureColor = Application.getApp().getProperty("HighTemperatureColor");
-						
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		_border = Background.BORDER;
 		
@@ -81,6 +77,10 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		_areaForegroundColor = Application.getApp().getProperty("AreaForegroundColor");
+		_lowTemperatureColor = Application.getApp().getProperty("LowTemperatureColor");
+		_highTemperatureColor = Application.getApp().getProperty("HighTemperatureColor");
+						
 		if (Weather.getCurrentConditions() == null) {
 			drawUnavailableWeather(dc);
 			return;
@@ -97,7 +97,7 @@ class Weather extends Ui.Drawable {
 	function drawUnavailableWeather(dc) {
 		var x = _screenWidth / 2 + 20, y= 57;
 		
-		var message = "No weather data";
+		var message = Ui.loadResource(Rez.Strings.NoWeatherData);
 
 		dc.setColor(_areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, _font, message, Graphics.TEXT_JUSTIFY_CENTER);	

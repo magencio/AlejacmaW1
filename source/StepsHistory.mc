@@ -17,16 +17,16 @@ class StepsHistory extends Ui.Drawable {
 	function initialize() {
 		Drawable.initialize({ :identifier => "StepsHistory" });
 		
-		_stepsBarColor = Application.getApp().getProperty("StepsBarColor");
-		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-				
 		_border = Background.BORDER;
 		
 		_daysFont = Ui.loadResource(Rez.Fonts.Tech16Font);		
 	}
 
 	function draw(dc) {
+		_stepsBarColor = Application.getApp().getProperty("StepsBarColor");
+		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+				
 		drawDays(dc);
 		var topSteps = getTopSteps();		
 		drawHistoryBars(dc, topSteps);

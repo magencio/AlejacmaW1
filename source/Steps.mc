@@ -9,10 +9,7 @@ class Steps extends Ui.Drawable {
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "Steps" });
-		
-		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
-		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
-		
+				
 		_screenWidth = System.getDeviceSettings().screenWidth;
 		
 		_stepsFont = Ui.loadResource(Rez.Fonts.Tech24Font);
@@ -20,6 +17,9 @@ class Steps extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		_foregroundColor = Application.getApp().getProperty("ForegroundColor");
+		_stepsGoalColor = Application.getApp().getProperty("StepsGoalColor");
+	
 		drawProgressLine(dc);
 		drawSteps(dc);
 		drawIcons(dc);
