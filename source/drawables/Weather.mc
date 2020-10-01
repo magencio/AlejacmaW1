@@ -34,7 +34,7 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawWeatherCondition(dc) {
-		var x = 46, y = 38;
+		var x = 46, y = 37;
 		
 		var condition = Weather.getCurrentConditions().condition;		
 		condition = Ui.loadResource($.CONDITIONS[condition]);
@@ -114,7 +114,7 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawLocation(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 28, y = 75;
+		var x = $.SCREEN_WIDTH / 2 + 28, y = 76;
 
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As the font by default doesn't support Spanish accents, I've modified the

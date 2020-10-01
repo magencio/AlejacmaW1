@@ -34,33 +34,38 @@ class Background extends WatchUi.Drawable {
     }
     
     function drawWeatherArea(dc) {
-		var x = 0, y = 35, height = 64;
+		var x = 0, y = 35;
 		
 		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y],
 			[x + $.SCREEN_WIDTH, y],
-			[x + $.SCREEN_WIDTH, y + height - 21],
-			[x + $.SCREEN_WIDTH - 47, y + height - 21],
-			[x + $.SCREEN_WIDTH - 50, y + height - 18],
-			[x + $.SCREEN_WIDTH - 50, y + height - 5],
-			[x + $.SCREEN_WIDTH - 54, y + height - 1],
-			[x + 112, y + height - 1],
-			[x + 82, y + height - 26],
-			[x + 0, y + height - 26]]);
+			[x + $.SCREEN_WIDTH, y + 43],
+			[x + $.SCREEN_WIDTH - 47, y + 43],
+			[x + $.SCREEN_WIDTH - 50, y + 46],
+			[x + $.SCREEN_WIDTH - 50, y + 59],
+			[x + $.SCREEN_WIDTH - 54, y + 63],
+			[x + 112, y + 63],
+			[x + 82, y + 37],
+			[x + 82, y + 26],
+			[x + 79, y + 23],
+			[x + 0, y + 23]]);
 	
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
+		
 		dc.fillPolygon([
 			[x, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
-			[x + $.SCREEN_WIDTH, y + height - $.BORDER - 21],
-			[x + $.SCREEN_WIDTH - $.BORDER - 46, y + height - $.BORDER - 21],
-			[x + $.SCREEN_WIDTH - $.BORDER - 50, y + height - $.BORDER - 17],
-			[x + $.SCREEN_WIDTH - $.BORDER - 50, y + height - $.BORDER - 4],
-			[x + $.SCREEN_WIDTH - $.BORDER - 53, y + height - $.BORDER - 1],
-			[x + 115 - $.BORDER, y + height - $.BORDER - 1],
-			[x + 85 - $.BORDER, y + height - $.BORDER - 26],
-			[x, y + height - $.BORDER - 26]]);
+			[x + $.SCREEN_WIDTH, y + 43 - $.BORDER ],
+			[x + $.SCREEN_WIDTH - $.BORDER - 46, y + 43 - $.BORDER],
+			[x + $.SCREEN_WIDTH - $.BORDER - 50, y + 47 - $.BORDER],
+			[x + $.SCREEN_WIDTH - $.BORDER - 50, y + 60 - $.BORDER],
+			[x + $.SCREEN_WIDTH - $.BORDER - 53, y + 63 - $.BORDER],
+			[x + 115 - $.BORDER, y + 63 - $.BORDER],
+			[x + 86 - $.BORDER, y + 38 - $.BORDER],
+			[x + 86 - $.BORDER, y + 27 - $.BORDER],
+			[x + 82 - $.BORDER, y + 23 - $.BORDER],
+			[x, y + 23 - $.BORDER]]);
 	}
     
     function drawTopOrnament(dc) {				
@@ -102,16 +107,16 @@ class Background extends WatchUi.Drawable {
     }
     
     function drawHeartRateArea(dc) {
-		var x = 0, y = 95, width = 104, height = 87;
+		var x = 0, y = 95, width = 104;
     
 		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y],
 			[x + width - 18, y],
 			[x + width - 1, y + 14],
-			[x + width - 1, y + height - 15],
-			[x + width - 18, y + height - 1],
-			[x, y + height - 1]
+			[x + width - 1, y + 72],
+			[x + width - 18, y + 86],
+			[x, y + 86]
 		]);
 	
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);
@@ -119,32 +124,32 @@ class Background extends WatchUi.Drawable {
 			[x, y + $.BORDER],
 			[x + width - $.BORDER - 17, y + $.BORDER],
 			[x + width - $.BORDER - 1, y + $.BORDER + 13],
-			[x + width - $.BORDER - 1, y + height - $.BORDER - 14],
-			[x + width - $.BORDER - 17, y + height - $.BORDER - 1],
-			[x, y + height - $.BORDER - 1]
+			[x + width - $.BORDER - 1, y + 73 - $.BORDER],
+			[x + width - $.BORDER - 17, y + 86 - $.BORDER],
+			[x, y + 86 - $.BORDER]
 		]);    
     }
     
     function drawStepsHistoryArea(dc) {
-		var x = 110, y = 112, height = 39;
+		var x = 110, y = 112;
 		        
     	dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + 5],
 			[x + 5, y],
 			[$.SCREEN_WIDTH, y],
-			[$.SCREEN_WIDTH, y + height - 1],
-			[x + 2, y + height - 1],
-			[x, y + height - 3]]);
+			[$.SCREEN_WIDTH, y + 38],
+			[x + 2, y + 38],
+			[x, y + 36]]);
 	
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + $.BORDER, y + $.BORDER + 4],
 			[x + $.BORDER + 4, y + $.BORDER],
 			[$.SCREEN_WIDTH, y + $.BORDER],
-			[$.SCREEN_WIDTH, y + height - $.BORDER - 1],
-			[x + $.BORDER + 1, y + height - $.BORDER - 1],
-			[x + $.BORDER, y + height - $.BORDER - 2]]);
+			[$.SCREEN_WIDTH, y + 38 - $.BORDER],
+			[x + $.BORDER + 1, y + 38 - $.BORDER],
+			[x + $.BORDER, y + 38 - $.BORDER]]);
     }
     
     function drawBottomOrnament(dc) {
@@ -186,7 +191,7 @@ class Background extends WatchUi.Drawable {
     }
     
     function drawDateTimeArea(dc) {
-		var x = 0, y = 178, height = 70;
+		var x = 0, y = 178;
 
 		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
@@ -195,12 +200,12 @@ class Background extends WatchUi.Drawable {
 			[x + 112, y],
 			[x + $.SCREEN_WIDTH - 38, y],
 			[x + $.SCREEN_WIDTH - 34, y + 4],
-			[x + $.SCREEN_WIDTH - 34, y + height - 1],
-			[x + 90, y + height - 1],
-			[x + 86, y + height - 5],
-			[x + 86, y + height - 16],
-			[x + 82, y + height - 20],
-			[x + 0, y + height - 20]]);
+			[x + $.SCREEN_WIDTH - 34, y + 69],
+			[x + 90, y + 69],
+			[x + 86, y + 65],
+			[x + 86, y + 54],
+			[x + 82, y + 50],
+			[x + 0, y + 50]]);
 		
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
 		dc.fillPolygon([
@@ -209,12 +214,12 @@ class Background extends WatchUi.Drawable {
 			[x + 113, y + $.BORDER],
 			[x + $.SCREEN_WIDTH - $.BORDER - 37, y + $.BORDER],
 			[x + $.SCREEN_WIDTH - $.BORDER - 34, y + $.BORDER + 3],
-			[x + $.SCREEN_WIDTH - $.BORDER - 34, y + height - $.BORDER - 1],
-			[x + 91, y + height - $.BORDER - 1],
-			[x + 86 + $.BORDER, y + height - $.BORDER - 4],
-			[x + 86 + $.BORDER, y + height - $.BORDER - 15],
-			[x + 83, y + height - $.BORDER - 20],
-			[x, y + height - $.BORDER - 20]]);        
+			[x + $.SCREEN_WIDTH - $.BORDER - 34, y + 69 - $.BORDER],
+			[x + 91, y + 69 - $.BORDER],
+			[x + 86 + $.BORDER, y + 66 - $.BORDER],
+			[x + 86 + $.BORDER, y + 55 - $.BORDER],
+			[x + 83, y + 50 - $.BORDER],
+			[x, y + 50 - $.BORDER]]);        
     }
     
     function drawCaloriesLine(dc) {

@@ -2,11 +2,12 @@
     <drawable class="Background" />
 	<drawable class="Steps"/> 
 	<drawable class="Weather"/>
+	<drawable class="Connections"/>
 	<drawable class="Battery"/>
 	<drawable class="HeartRate"/> 
 	<drawable class="StepsHistory"/>
 	<drawable class="DateTime"/>
-	<drawable class="Phone"/>
+	<drawable class="Notifications"/>
 	<drawable class="MoveBarLevel"/>
 	<drawable class="Calories"/>
 </layout>
