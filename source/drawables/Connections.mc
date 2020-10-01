@@ -28,7 +28,7 @@ class Connections extends Ui.Drawable {
 		var bluetooth = System.getDeviceSettings().connectionInfo[:bluetooth];
 		var bluetoothConnected = bluetooth != null && bluetooth.state == System.CONNECTION_STATE_CONNECTED;
 		
-		dc.setColor(bluetoothConnected ? Graphics.COLOR_WHITE : Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(bluetoothConnected ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.iconFont, 86.toChar(), Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
@@ -38,7 +38,7 @@ class Connections extends Ui.Drawable {
 		var wifi = System.getDeviceSettings().connectionInfo[:wifi];
 		var wifiConnected = wifi != null && wifi.state == System.CONNECTION_STATE_CONNECTED;
 		
-		dc.setColor(wifiConnected ? Graphics.COLOR_WHITE : Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(wifiConnected ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.iconFont, 207.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
 	}
 }
