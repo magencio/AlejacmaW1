@@ -2,12 +2,9 @@ using Toybox.System;
 using Toybox.WatchUi as Ui;
 
 class Battery extends Ui.Drawable {
-	hidden var _batteryPercentageFont;
-	
+
 	function initialize() {
 		Drawable.initialize({ :identifier => "Battery" });
-				
-		_batteryPercentageFont = Ui.loadResource(Rez.Fonts.Tech18Font);
 	}
 	
 	function draw(dc) {	
@@ -41,6 +38,6 @@ class Battery extends Ui.Drawable {
 		battery = battery.format("%d");
 		
     	dc.setColor($.backgroundColor, Graphics.COLOR_TRANSPARENT);
-	    dc.drawText(x, y, _batteryPercentageFont, battery, Graphics.TEXT_JUSTIFY_CENTER);	
+	    dc.drawText(x, y, $.smallFont, battery, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

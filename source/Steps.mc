@@ -1,13 +1,9 @@
 using Toybox.WatchUi as Ui;
 
 class Steps extends Ui.Drawable {
-	hidden var _stepsFont, _iconFont;	
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "Steps" });
-				
-		_stepsFont = Ui.loadResource(Rez.Fonts.Tech24Font);
-		_iconFont = Ui.loadResource(Rez.Fonts.IconsFont);
 	}
 	
 	function draw(dc) {
@@ -39,14 +35,14 @@ class Steps extends Ui.Drawable {
 		steps = steps.format("%04d");
 		
 		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, _stepsFont, steps, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.drawText(x, y, $.normalFont, steps, Graphics.TEXT_JUSTIFY_CENTER);
 	}
 	
 	function drawIcons(dc) {
 		var x1 = $.SCREEN_WIDTH / 2 - 36, x2 = $.SCREEN_WIDTH / 2 + 37, y = 4;
 		
 		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x1, y, _iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);		
-		dc.drawText(x2, y, _iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);			
+		dc.drawText(x1, y, $.iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.drawText(x2, y, $.iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }

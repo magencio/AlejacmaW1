@@ -2,6 +2,7 @@ using Toybox.ActivityMonitor;
 using Toybox.WatchUi as Ui;
 
 class MoveBarLevel extends Ui.Drawable {
+
 	const MAX_BARS = 5;
 	
 	function initialize() {

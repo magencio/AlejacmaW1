@@ -5,8 +5,7 @@ using Toybox.Time.Gregorian;
 using Toybox.WatchUi as Ui;
 
 class StepsHistory extends Ui.Drawable {
-	hidden var _daysFont;
-	
+
 	const MAX_BARS = 8;
 	const BAR_HEIGHT = 30;
 	const BAR_WIDTH = 15;
@@ -14,8 +13,6 @@ class StepsHistory extends Ui.Drawable {
 	
 	function initialize() {
 		Drawable.initialize({ :identifier => "StepsHistory" });
-		
-		_daysFont = Ui.loadResource(Rez.Fonts.Tech16Font);		
 	}
 
 	function draw(dc) {
@@ -58,7 +55,7 @@ class StepsHistory extends Ui.Drawable {
 			var time = now.subtract(new Time.Duration(60 * 60 * 24 * i));
 		    var date = Gregorian.info(time, Time.FORMAT_LONG);	
 		    	    	
-			dc.drawText(textX, y, _daysFont, date.day.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
+			dc.drawText(textX, y, $.tinyFont, date.day.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 	}
 	
