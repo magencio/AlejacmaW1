@@ -40,32 +40,23 @@ class Background extends WatchUi.Drawable {
 		dc.fillPolygon([
 			[x, y],
 			[x + $.SCREEN_WIDTH, y],
-			[x + $.SCREEN_WIDTH, y + 43],
-			[x + $.SCREEN_WIDTH - 65, y + 43],
-			[x + $.SCREEN_WIDTH - 68, y + 46],
-			[x + $.SCREEN_WIDTH - 68, y + 59],
-			[x + $.SCREEN_WIDTH - 72, y + 63],
-			[x + 72, y + 63],			
-			[x + 68, y + 59],
-			[x + 68, y + 46],
-			[x + 65, y + 43],
-			[x, y + 43]]);
+			[x + $.SCREEN_WIDTH, y + 44],
+			[x + $.SCREEN_WIDTH - 62, y + 44],
+			[x + $.SCREEN_WIDTH - 81, y + 63],
+			[x + 81, y + 63],			
+			[x + 62, y + 44],
+			[x, y + 44]]);
 	
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
-		
 		dc.fillPolygon([
 			[x, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
-			[x + $.SCREEN_WIDTH, y - $.BORDER + 43],
-			[x + $.SCREEN_WIDTH - $.BORDER - 64, y - $.BORDER + 43],
-			[x + $.SCREEN_WIDTH - $.BORDER - 68, y - $.BORDER + 47],
-			[x + $.SCREEN_WIDTH - $.BORDER - 68, y - $.BORDER + 60],
-			[x + $.SCREEN_WIDTH - $.BORDER - 71, y - $.BORDER + 63],
-			[x + $.BORDER + 71, y - $.BORDER + 63],
-			[x + $.BORDER + 68, y - $.BORDER + 60],
-			[x + $.BORDER + 68, y - $.BORDER + 47],
-			[x + $.BORDER + 64, y - $.BORDER + 43],
-			[x, y - $.BORDER + 43]]);
+			[x + $.SCREEN_WIDTH, y - $.BORDER + 44],
+			[x + $.SCREEN_WIDTH - 63, y - $.BORDER + 44],
+			[x + $.SCREEN_WIDTH - $.BORDER - 80, y - $.BORDER + 63],
+			[x + $.BORDER + 80, y - $.BORDER + 63],
+			[x + $.BORDER + 61, y - $.BORDER + 44],
+			[x, y - $.BORDER + 44]]);
 	}
     
     function drawTopOrnament(dc) {				

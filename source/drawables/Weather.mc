@@ -122,7 +122,7 @@ class Weather extends Ui.Drawable {
 		var observationLocationName = Weather.getCurrentConditions().observationLocationName;		
 		observationLocationName = observationLocationName == null ? "--------" : observationLocationName;
 		var comma = observationLocationName.find(",");
-		observationLocationName = observationLocationName.substring(0, comma == null || comma > 15 ? 15 : comma);
+		observationLocationName = observationLocationName.substring(0, comma == null || comma > 12 ? 12 : comma);
 
 		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.smallFont, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			
