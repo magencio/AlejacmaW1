@@ -19,7 +19,7 @@ class DateTime extends Ui.Drawable {
 			drawAMPM(dc, clockTime);
 		}
 		drawDate(dc);
-		drawAlarm(dc);
+		drawAlarm(dc, is24Hour);
   	}
   	
   	function drawTime(dc, clockTime, is24Hour) {
@@ -52,12 +52,12 @@ class DateTime extends Ui.Drawable {
         dc.drawText(x, y, $.smallFont, day, Graphics.TEXT_JUSTIFY_RIGHT);  	
   	}
   	
-  	function drawAlarm(dc) {
-  		var x = $.SCREEN_WIDTH / 2 - 32, y = 223;
+  	function drawAlarm(dc, is24Hour) {
+  		var x = $.SCREEN_WIDTH - (is24Hour ? 36 : 45), y = is24Hour ? 187 : 204;
   		
 		var color = System.getDeviceSettings().alarmCount > 0 ? $.areaForegroundColor : $.areaDisabledColor;
 		
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.iconFont, $.ICON_ALARM, Graphics.TEXT_JUSTIFY_RIGHT);
+		dc.drawText(x, y, $.iconFont, $.ICON_ALARM, Graphics.TEXT_JUSTIFY_LEFT);
   	}
 }

@@ -17,7 +17,7 @@ class MoveBarLevel extends Ui.Drawable {
 		var moveReference = ActivityMonitor.MOVE_BAR_LEVEL_MAX - ActivityMonitor.MOVE_BAR_LEVEL_MIN;
 		var moveBarLevel = (activity.moveBarLevel - ActivityMonitor.MOVE_BAR_LEVEL_MIN) / moveReference * MAX_BARS;
 		
-		dc.setColor(moveBarLevel >= 1 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(moveBarLevel == MAX_BARS ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + 80, y + 1],
 			[x + 81, y],
@@ -27,7 +27,7 @@ class MoveBarLevel extends Ui.Drawable {
 			[x + 84, y + 12],
 			[x + 81, y + 12],
 			[x + 80, y + 11]]);
-		dc.setColor(moveBarLevel >= 2 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(moveBarLevel >= 4 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + 70, y + 1],
 			[x + 71, y],
@@ -47,7 +47,7 @@ class MoveBarLevel extends Ui.Drawable {
 			[x + 66, y + 12],
 			[x + 59, y + 12],
 			[x + 58, y + 11]]);
-		dc.setColor(moveBarLevel >= 4 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(moveBarLevel >= 2 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + 41, y + 1],
 			[x + 42, y],
@@ -57,7 +57,7 @@ class MoveBarLevel extends Ui.Drawable {
 			[x + 54, y + 12],
 			[x + 42, y + 12],
 			[x + 41, y + 11]]);
-		dc.setColor(moveBarLevel == MAX_BARS ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(moveBarLevel >= 1 ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + 1],
 			[x + 1, y],
