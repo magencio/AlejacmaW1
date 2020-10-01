@@ -93,8 +93,7 @@
     <string id="ConditionUnknown">Unknown</string>
     
     <!--  On-screen text: Titles -->
-    <string id="HeartRateTopTitle">Heart</string>
-    <string id="HeartRateBottomTitle">Rate</string>
+    <string id="HeartRateTitle">HR</string>
 
     <!--  On-screen text: Messages -->
 	<string id="NoWeatherData">No weather data</string>

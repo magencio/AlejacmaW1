@@ -23,7 +23,7 @@ class DateTime extends Ui.Drawable {
   	}
   	
   	function drawTime(dc, clockTime, is24Hour) {
-		var x = $.SCREEN_WIDTH / 2 + 36 - (is24Hour ? 0 : 4), y = 183;
+		var x = $.SCREEN_WIDTH / 2 + 36 - (is24Hour ? 0 : 2), y = 183;
 
   		var hours = clockTime.hour;
   		hours = !is24Hour && hours > 12 ? hours - 12 : hours; 
@@ -34,13 +34,12 @@ class DateTime extends Ui.Drawable {
   	} 
   	
   	function drawAMPM(dc, clockTime) {  		
-  		var x = $.SCREEN_WIDTH - 44, y = 183;
+  		var x = $.SCREEN_WIDTH - 44, y = 188;
   		
-  		var first = clockTime.hour > 12 ? "P" : "A";
+  		var text = clockTime.hour > 12 ? "PM" : "AM";
   		
         dc.setColor($.amPmColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, $.smallFont, first, Graphics.TEXT_JUSTIFY_CENTER);
-		dc.drawText(x, y + 14, $.smallFont, "M", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(x, y, $.smallFont, text, Graphics.TEXT_JUSTIFY_LEFT);
   	}
   	
   	function drawDate(dc) {

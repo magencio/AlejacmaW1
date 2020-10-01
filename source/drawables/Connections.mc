@@ -11,10 +11,11 @@ class Connections extends Ui.Drawable {
 		drawPhoneConnected(dc);
 		drawBluetoothEnabled(dc);
 		drawWifiEnabled(dc);		
+		drawDoNotDisturb(dc);
 	}
 	
 	function drawPhoneConnected(dc) {
-		var x = 32, y = 56;
+		var x = 20, y = 78;
 
 		var phoneConnected = System.getDeviceSettings().phoneConnected;
 
@@ -23,22 +24,31 @@ class Connections extends Ui.Drawable {
 	}
 	
 	function drawBluetoothEnabled(dc) {
-		var x = 51, y = 56;
+		var x = 37, y = 78;
 		
 		var bluetooth = System.getDeviceSettings().connectionInfo[:bluetooth];
 		var bluetoothConnected = bluetooth != null && bluetooth.state == System.CONNECTION_STATE_CONNECTED;
 		
 		dc.setColor(bluetoothConnected ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.iconFont, 86.toChar(), Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.drawText(x, y, $.iconFont, $.ICON_BLUETOOTH, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
 	function drawWifiEnabled(dc) {
-		var x = 70, y = 55;
+		var x = 56, y = 78;
 		
 		var wifi = System.getDeviceSettings().connectionInfo[:wifi];
 		var wifiConnected = wifi != null && wifi.state == System.CONNECTION_STATE_CONNECTED;
 		
 		dc.setColor(wifiConnected ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.iconFont, 207.toChar(), Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.drawText(x, y, $.iconFont, $.ICON_WIFI, Graphics.TEXT_JUSTIFY_CENTER);		
 	}
+	
+	function drawDoNotDisturb(dc) {
+		var x = 224, y = 78;
+		
+		var doNotDisturb = System.getDeviceSettings().doNotDisturb;
+		
+		dc.setColor(!doNotDisturb ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.iconFont, $.ICON_PEOPLE, Graphics.TEXT_JUSTIFY_CENTER);		
+	}	
 }

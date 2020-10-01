@@ -3,43 +3,28 @@ using Toybox.ActivityMonitor;
 using Toybox.WatchUi as Ui;
 
 class HeartRate extends Ui.Drawable {
-	hidden var _width;
-	
 	function initialize() {
 		Drawable.initialize({ :identifier => "HeartRate" });
-				
-		_width = 104;
 	}
 	
 	function draw(dc) {
-		drawTopTitle(dc);
-		drawBottomTitle(dc);
+		drawTitle(dc);
 		drawHeartRate(dc);
 	}
 	
-	function drawTopTitle(dc) {
-		var x = _width / 2, y = 99;
+	function drawTitle(dc) {
+		var x = 14, y = 120;
 		
-		var title = Ui.loadResource(Rez.Strings.HeartRateTopTitle);
-		var titleWidth = dc.getTextWidthInPixels(title, $.smallFont);
-		
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x - titleWidth / 2 - 2, y - 2, $.iconFont, $.ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);		
-	
-		dc.drawText(x + 9, y, $.smallFont, title, Graphics.TEXT_JUSTIFY_CENTER);
-	}
-	
-	function drawBottomTitle(dc) {
-		var x = _width / 2, y = 159;
-		
-		var title = Ui.loadResource(Rez.Strings.HeartRateBottomTitle);
+		var title = Ui.loadResource(Rez.Strings.HeartRateTitle);
 		
 		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, title, Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.drawText(x, y, $.smallFont, title, Graphics.TEXT_JUSTIFY_CENTER);
+
+		dc.drawText(x, y + 16, $.iconFont, $.ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 	
 	function drawHeartRate(dc) {
-		var x = _width / 2, y = 114;
+		var x = 60, y = 114;
 		
 		var heartRate = Activity.getActivityInfo().currentHeartRate;
 		if (heartRate == null) {		

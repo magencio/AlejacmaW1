@@ -93,8 +93,7 @@
     <string id="ConditionUnknown">Desconocido</string>
 
 	<!--  On-screen text: Titles -->
-    <string id="HeartRateTopTitle">Frec.</string>
-    <string id="HeartRateBottomTitle">Cardiaca</string>
+    <string id="HeartRateTitle">FC</string>
 
     <!--  On-screen text: Messages -->
 	<string id="NoWeatherData">Sin datos del tiempo</string>

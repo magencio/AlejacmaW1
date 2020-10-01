@@ -16,16 +16,16 @@ class Weather extends Ui.Drawable {
 			return;
 		}
 		
-		drawWeatherCondition(dc);
 		drawCurrentTemperature(dc);
 		drawLowTemperature(dc);
 		drawHighTemperature(dc);
 		drawPrecipitationChance(dc);
+		drawWeatherCondition(dc);
 		drawLocation(dc);		
 	}
 	
 	function drawUnavailableWeather(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 20, y= 57;
+		var x = $.SCREEN_WIDTH / 2, y= 57;
 		
 		var message = Ui.loadResource(Rez.Strings.NoWeatherData);
 
@@ -33,30 +33,20 @@ class Weather extends Ui.Drawable {
 		dc.drawText(x, y, $.smallFont, message, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
-	function drawWeatherCondition(dc) {
-		var x = 46, y = 37;
-		
-		var condition = Weather.getCurrentConditions().condition;		
-		condition = Ui.loadResource($.CONDITIONS[condition]);
-
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, condition, Graphics.TEXT_JUSTIFY_LEFT);	
-	}
-	
 	function drawCurrentTemperature(dc) {
-		var x = $.SCREEN_WIDTH / 2 - 34, y = 57;
+		var x = 64, y = 37;
 
 		drawTemperature(dc, $.areaForegroundColor, x, y, Weather.getCurrentConditions().temperature);
 	}
 	
 	function drawLowTemperature(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 11, y = 57;
+		var x = 116, y = 37;
 
 		drawTemperature(dc, $.lowTemperatureColor, x, y, Weather.getCurrentConditions().lowTemperature);
 	}
 	
 	function drawHighTemperature(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 56, y = 57;
+		var x = 168, y = 37;
 
 		drawTemperature(dc, $.highTemperatureColor, x, y, Weather.getCurrentConditions().highTemperature);
 	}
@@ -90,7 +80,7 @@ class Weather extends Ui.Drawable {
 	}
 	
 	function drawPrecipitationChance(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 101, y = 57;
+		var x = 220, y = 37;
 		
 		// Precipitation chance
 		var precipitationChance = Weather.getCurrentConditions().precipitationChance;			
@@ -112,9 +102,19 @@ class Weather extends Ui.Drawable {
 		dc.drawLine(x + 7, y + 4, x + 2, y + 15);
 		dc.drawRectangle(x + 6, y + 12, 4, 4);
 	}
-	
+
+	function drawWeatherCondition(dc) {
+		var x = $.SCREEN_WIDTH / 2, y = 57;
+		
+		var condition = Weather.getCurrentConditions().condition;		
+		condition = Ui.loadResource($.CONDITIONS[condition]);
+
+		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.smallFont, condition, Graphics.TEXT_JUSTIFY_CENTER);	
+	}
+		
 	function drawLocation(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 28, y = 76;
+		var x = $.SCREEN_WIDTH / 2, y = 76;
 
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As the font by default doesn't support Spanish accents, I've modified the

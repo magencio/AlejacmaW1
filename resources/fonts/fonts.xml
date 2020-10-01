@@ -1,5 +1,5 @@
 <fonts>
-	<font id="IconsFont" filename="icons.fnt" antialias="true" filter="RVXmÁÄÏ"/>
+	<font id="IconsFont" filename="icons.fnt" antialias="true" filter="RVXmyÁÄÏ"/>
 	<font id="Tech16Font" filename="technology_16.fnt" antialias="true" filter="0123456789KC"/>
 	<font id="Tech18Font" filename="technology_18.fnt" antialias="true"/>
 	<font id="Tech24Font" filename="technology_24.fnt" antialias="true" filter="0123456789"/>
