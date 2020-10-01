@@ -53,8 +53,8 @@ class Background extends WatchUi.Drawable {
 		dc.fillPolygon([
 			[x, y],
 			[x + _screenWidth, y],
-			[x + _screenWidth, y + height - 22],
-			[x + _screenWidth - 46, y + height - 22],
+			[x + _screenWidth, y + height - 21],
+			[x + _screenWidth - 47, y + height - 21],
 			[x + _screenWidth - 50, y + height - 18],
 			[x + _screenWidth - 50, y + height - 5],
 			[x + _screenWidth - 54, y + height - 1],
@@ -66,11 +66,11 @@ class Background extends WatchUi.Drawable {
 		dc.fillPolygon([
 			[x, y + BORDER],
 			[x + _screenWidth, y + BORDER],
-			[x + _screenWidth, y + height - BORDER - 22],
-			[x + _screenWidth - BORDER - 46, y + height - BORDER - 22],
-			[x + _screenWidth - BORDER - 50, y + height - BORDER - 18],
-			[x + _screenWidth - BORDER - 50, y + height - BORDER - 5],
-			[x + _screenWidth - BORDER - 54, y + height - BORDER - 1],
+			[x + _screenWidth, y + height - BORDER - 21],
+			[x + _screenWidth - BORDER - 46, y + height - BORDER - 21],
+			[x + _screenWidth - BORDER - 50, y + height - BORDER - 17],
+			[x + _screenWidth - BORDER - 50, y + height - BORDER - 4],
+			[x + _screenWidth - BORDER - 53, y + height - BORDER - 1],
 			[x + 115 - BORDER, y + height - BORDER - 1],
 			[x + 85 - BORDER, y + height - BORDER - 26],
 			[x, y + height - BORDER - 26]]);
@@ -130,8 +130,8 @@ class Background extends WatchUi.Drawable {
 		dc.setColor(_areaBackgroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + BORDER],
-			[x + width - BORDER - 18, y + BORDER],
-			[x + width - BORDER - 1, y + BORDER + 14],
+			[x + width - BORDER - 17, y + BORDER],
+			[x + width - BORDER - 1, y + BORDER + 13],
 			[x + width - BORDER - 1, y + height - BORDER - 14],
 			[x + width - BORDER - 17, y + height - BORDER - 1],
 			[x, y + height - BORDER - 1]
@@ -220,8 +220,8 @@ class Background extends WatchUi.Drawable {
 			[x, y + 25 + BORDER],
 			[x + 83, y + 25 + BORDER],
 			[x + 113, y + BORDER],
-			[x + _screenWidth - BORDER - 38, y + BORDER],
-			[x + _screenWidth - BORDER - 34, y + BORDER + 4],
+			[x + _screenWidth - BORDER - 37, y + BORDER],
+			[x + _screenWidth - BORDER - 34, y + BORDER + 3],
 			[x + _screenWidth - BORDER - 34, y + height - BORDER - 1],
 			[x + 91, y + height - BORDER - 1],
 			[x + 86 + BORDER, y + height - BORDER - 4],
