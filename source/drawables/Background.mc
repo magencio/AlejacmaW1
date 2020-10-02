@@ -41,10 +41,10 @@ class Background extends WatchUi.Drawable {
 			[x, y],
 			[x + $.SCREEN_WIDTH, y],
 			[x + $.SCREEN_WIDTH, y + 44],
-			[x + $.SCREEN_WIDTH - 62, y + 44],
-			[x + $.SCREEN_WIDTH - 81, y + 63],
-			[x + 81, y + 63],			
-			[x + 62, y + 44],
+			[x + $.SCREEN_WIDTH - 45, y + 44],
+			[x + $.SCREEN_WIDTH - 64, y + 63],
+			[x + 98, y + 63],			
+			[x + 79, y + 44],
 			[x, y + 44]]);
 	
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
@@ -52,10 +52,10 @@ class Background extends WatchUi.Drawable {
 			[x, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y - $.BORDER + 44],
-			[x + $.SCREEN_WIDTH - 63, y - $.BORDER + 44],
-			[x + $.SCREEN_WIDTH - $.BORDER - 80, y - $.BORDER + 63],
-			[x + $.BORDER + 80, y - $.BORDER + 63],
-			[x + $.BORDER + 61, y - $.BORDER + 44],
+			[x + $.SCREEN_WIDTH - 46, y - $.BORDER + 44],
+			[x + $.SCREEN_WIDTH - $.BORDER - 63, y - $.BORDER + 63],
+			[x + $.BORDER + 97, y - $.BORDER + 63],
+			[x + $.BORDER + 78, y - $.BORDER + 44],
 			[x, y - $.BORDER + 44]]);
 	}
     

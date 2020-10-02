@@ -44,7 +44,7 @@ class Connections extends Ui.Drawable {
 	}
 	
 	function drawDoNotDisturb(dc) {
-		var x = 224, y = 78;
+		var x = 75, y = 78;
 		
 		var doNotDisturb = System.getDeviceSettings().doNotDisturb;
 		

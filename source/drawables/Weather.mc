@@ -114,7 +114,7 @@ class Weather extends Ui.Drawable {
 	}
 		
 	function drawLocation(dc) {
-		var x = $.SCREEN_WIDTH / 2, y = 76;
+		var x = $.SCREEN_WIDTH / 2 + 17, y = 76;
 
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As the font by default doesn't support Spanish accents, I've modified the
