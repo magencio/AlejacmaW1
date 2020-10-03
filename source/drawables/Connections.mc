@@ -19,7 +19,7 @@ class Connections extends Ui.Drawable {
 
 		var phoneConnected = System.getDeviceSettings().phoneConnected;
 
-		dc.setColor(phoneConnected ? $.colorNotificationsActive : $.colorNotificationsInactive, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(phoneConnected ? $.colorConnectionsActive : $.colorConnectionsInactive, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.fontIcons, $.ICON_PHONE, Graphics.TEXT_JUSTIFY_CENTER);
 	}
 	
@@ -29,7 +29,7 @@ class Connections extends Ui.Drawable {
 		var bluetooth = System.getDeviceSettings().connectionInfo[:bluetooth];
 		var bluetoothConnected = bluetooth != null && bluetooth.state == System.CONNECTION_STATE_CONNECTED;
 		
-		dc.setColor(bluetoothConnected ? $.colorNotificationsActive : $.colorNotificationsInactive, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(bluetoothConnected ? $.colorConnectionsActive : $.colorConnectionsInactive, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.fontIcons, $.ICON_BLUETOOTH, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
@@ -39,7 +39,7 @@ class Connections extends Ui.Drawable {
 		var wifi = System.getDeviceSettings().connectionInfo[:wifi];
 		var wifiConnected = wifi != null && wifi.state == System.CONNECTION_STATE_CONNECTED;
 		
-		dc.setColor(wifiConnected ? $.colorNotificationsActive : $.colorNotificationsInactive, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(wifiConnected ? $.colorConnectionsActive : $.colorConnectionsInactive, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.fontIcons, $.ICON_WIFI, Graphics.TEXT_JUSTIFY_CENTER);		
 	}
 	
@@ -48,7 +48,7 @@ class Connections extends Ui.Drawable {
 		
 		var doNotDisturb = System.getDeviceSettings().doNotDisturb;
 		
-		dc.setColor(!doNotDisturb ? $.colorNotificationsActive : $.colorNotificationsInactive, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(!doNotDisturb ? $.colorConnectionsActive : $.colorConnectionsInactive, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.fontIcons, $.ICON_PEOPLE, Graphics.TEXT_JUSTIFY_CENTER);		
 	}	
 }
