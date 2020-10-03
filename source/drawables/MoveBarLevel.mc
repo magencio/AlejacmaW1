@@ -12,10 +12,9 @@ class MoveBarLevel extends Ui.Drawable {
 	function draw(dc) {
 		var x = 0, y = 173;
 
-		var activity = ActivityMonitor.getInfo();
-
+		var moveBarLevel = ActivityMonitor.getInfo().moveBarLevel;
 		var moveReference = ActivityMonitor.MOVE_BAR_LEVEL_MAX - ActivityMonitor.MOVE_BAR_LEVEL_MIN;
-		var moveBarLevel = (activity.moveBarLevel - ActivityMonitor.MOVE_BAR_LEVEL_MIN) / moveReference * MAX_BARS;
+		moveBarLevel = (moveBarLevel - ActivityMonitor.MOVE_BAR_LEVEL_MIN) * MAX_BARS / moveReference;
 		
 		dc.setColor(moveBarLevel == MAX_BARS ? $.foregroundColor : $.disabledColor, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
