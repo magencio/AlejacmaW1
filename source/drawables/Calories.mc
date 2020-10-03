@@ -19,21 +19,21 @@ class Calories extends Ui.Drawable {
 		calories = calories > 99999 ? 99999 : calories;  
 		calories = calories.format("%04d");
 		
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.normalFont, calories, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.setColor($.colorCalories, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontNormal, calories, Graphics.TEXT_JUSTIFY_CENTER);
 	}
 	
 	function drawIcon(dc) {
 		var x = $.SCREEN_WIDTH / 2 - 34, y = $.SCREEN_HEIGHT - 27;
 		
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.iconFont, $.ICON_CALORIES, Graphics.TEXT_JUSTIFY_CENTER);			
+		dc.setColor($.colorCalories, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontIcons, $.ICON_CALORIES, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 	
 	function drawUnits(dc) {
 		var x = $.SCREEN_WIDTH / 2 + 45, y = $.SCREEN_HEIGHT - 23;
 		
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.tinyFont, "KC", Graphics.TEXT_JUSTIFY_RIGHT);					
+		dc.setColor($.colorCalories, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontTiny, "KC", Graphics.TEXT_JUSTIFY_RIGHT);					
 	}
 }

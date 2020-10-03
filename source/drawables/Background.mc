@@ -21,14 +21,14 @@ class Background extends WatchUi.Drawable {
     }
     
     function drawBackground(dc) {
-        dc.setColor(Graphics.COLOR_TRANSPARENT, $.backgroundColor);
+        dc.setColor(Graphics.COLOR_TRANSPARENT, $.colorBackground);
         dc.clear();
     }
     
     function drawStepsLine(dc) {
 		var x = 0, y = 30;
 		
-		dc.setColor($.lineColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorStepsLine, Graphics.COLOR_TRANSPARENT);
 		dc.setPenWidth(2);
 		dc.drawLine(x, y, x + $.SCREEN_WIDTH, y);    
     }
@@ -36,7 +36,7 @@ class Background extends WatchUi.Drawable {
     function drawWeatherArea(dc) {
 		var x = 0, y = 35;
 		
-		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorAreaBorder, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y],
 			[x + $.SCREEN_WIDTH, y],
@@ -49,7 +49,7 @@ class Background extends WatchUi.Drawable {
 			[x + 79, y + 44],
 			[x, y + 44]]);
 	
-		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
+		dc.setColor($.colorAreaBackground, Graphics.COLOR_TRANSPARENT);		
 		dc.fillPolygon([
 			[x, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
@@ -66,7 +66,7 @@ class Background extends WatchUi.Drawable {
     function drawTopOrnament(dc) {				
 		var x = 0, y = $.SCREEN_HEIGHT / 2 - 37;
 
-		dc.setColor($.ornamentColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorOrnaments, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + 84, y],
 			[x + $.SCREEN_WIDTH, y],
@@ -102,7 +102,7 @@ class Background extends WatchUi.Drawable {
     function drawHeartRateArea(dc) {
 		var x = 0, y = 112;
     
-		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorAreaBorder, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y],
 			[x + 98, y],
@@ -112,7 +112,7 @@ class Background extends WatchUi.Drawable {
 			[x, y + 55]
 		]);
 	
-		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorAreaBackground, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + $.BORDER],
 			[x - $.BORDER + 99, y + $.BORDER],
@@ -126,7 +126,7 @@ class Background extends WatchUi.Drawable {
     function drawStepsHistoryArea(dc) {
 		var x = 110, y = 112;
 		        
-    	dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor($.colorAreaBorder, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + 5],
 			[x + 5, y],
@@ -135,7 +135,7 @@ class Background extends WatchUi.Drawable {
 			[x + 2, y + 38],
 			[x, y + 36]]);
 	
-		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorAreaBackground, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + $.BORDER, y + $.BORDER + 4],
 			[x + $.BORDER + 4, y + $.BORDER],
@@ -148,7 +148,7 @@ class Background extends WatchUi.Drawable {
     function drawBottomOrnament(dc) {
 		var x = 0, y = $.SCREEN_HEIGHT / 2 + 58;
 
-		dc.setColor($.ornamentColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorOrnaments, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x + 75, y],
 			[x + 80, y],
@@ -186,7 +186,7 @@ class Background extends WatchUi.Drawable {
     function drawDateTimeArea(dc) {
 		var x = 0, y = 178;
 
-		dc.setColor($.areaBorderColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorAreaBorder, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x, y + 25],
 			[x + 82, y + 25],
@@ -197,7 +197,7 @@ class Background extends WatchUi.Drawable {
 			[x + 82, y + 50],
 			[x, y + 50]]);
 		
-		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
+		dc.setColor($.colorAreaBackground, Graphics.COLOR_TRANSPARENT);		
 		dc.fillPolygon([
 			[x, y + $.BORDER + 25],
 			[x + 83, y + $.BORDER + 25],
@@ -212,7 +212,7 @@ class Background extends WatchUi.Drawable {
     function drawCaloriesLine(dc) {
 		var x = 0, y = $.SCREEN_HEIGHT - 29;
 
-		dc.setColor($.lineColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorCaloriesLine, Graphics.COLOR_TRANSPARENT);
 		dc.setPenWidth(2);
 		dc.drawLine(x, y, x + $.SCREEN_WIDTH, y);    
     }

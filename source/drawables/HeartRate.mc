@@ -15,12 +15,12 @@ class HeartRate extends Ui.Drawable {
 	function drawTitle(dc) {
 		var x = 14, y = 120;
 		
-		var title = Ui.loadResource(Rez.Strings.HeartRateTitle);
+		var title = Ui.loadResource(Rez.Strings.TitleHeartRate);
 		
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, title, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.setColor($.colorHeartRateTitle, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontSmall, title, Graphics.TEXT_JUSTIFY_CENTER);
 
-		dc.drawText(x, y + 16, $.iconFont, $.ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);			
+		dc.drawText(x, y + 16, $.fontIcons, $.ICON_HEART, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 	
 	function drawHeartRate(dc) {
@@ -42,7 +42,7 @@ class HeartRate extends Ui.Drawable {
 		
 		heartRate = (heartRate != null) ? heartRate.format("%02d") : "--";
 		
-		dc.setColor($.heartRateColor, Graphics.COLOR_TRANSPARENT);		
-		dc.drawText(x, y, $.bigFont, heartRate, Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.setColor($.colorHeartRate, Graphics.COLOR_TRANSPARENT);		
+		dc.drawText(x, y, $.fontBig, heartRate, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

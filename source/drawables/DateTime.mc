@@ -29,8 +29,8 @@ class DateTime extends Ui.Drawable {
   		hours = !is24Hour && hours > 12 ? hours - 12 : hours; 
         var time = Lang.format("$1$:$2$", [hours, clockTime.min.format("%02d")]);
         
-        dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.largeFont, time, Graphics.TEXT_JUSTIFY_CENTER);  	
+        dc.setColor($.colorTime, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontLarge, time, Graphics.TEXT_JUSTIFY_CENTER);  	
   	} 
   	
   	function drawAMPM(dc, clockTime) {  		
@@ -38,8 +38,8 @@ class DateTime extends Ui.Drawable {
   		
   		var text = clockTime.hour > 12 ? "PM" : "AM";
   		
-        dc.setColor($.amPmColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, $.smallFont, text, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.setColor($.colorTimeAmPm, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, $.fontSmall, text, Graphics.TEXT_JUSTIFY_LEFT);
   	}
   	
   	function drawDate(dc) {
@@ -48,16 +48,16 @@ class DateTime extends Ui.Drawable {
 		var date = Gregorian.info(Time.now(), Time.FORMAT_LONG);
         var day = Lang.format("$1$ $2$ $3$", [date.day_of_week, date.day, date.month]);
         
-        dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, $.smallFont, day, Graphics.TEXT_JUSTIFY_RIGHT);  	
+        dc.setColor($.colorDate, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, $.fontSmall, day, Graphics.TEXT_JUSTIFY_RIGHT);  	
   	}
   	
   	function drawAlarm(dc, is24Hour) {
   		var x = $.SCREEN_WIDTH - (is24Hour ? 36 : 45), y = is24Hour ? 187 : 204;
   		
-		var color = System.getDeviceSettings().alarmCount > 0 ? $.areaForegroundColor : $.areaDisabledColor;
+		var color = System.getDeviceSettings().alarmCount > 0 ? $.colorAlarmActive : $.colorAlarmInactive;
 		
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.iconFont, $.ICON_ALARM, Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(x, y, $.fontIcons, $.ICON_ALARM, Graphics.TEXT_JUSTIFY_LEFT);
   	}
 }

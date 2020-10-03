@@ -10,7 +10,7 @@ class Notifications extends Ui.Drawable {
 	function draw(dc) {		
 		var notifications = System.getDeviceSettings().notificationCount;
 		notifications = notifications > 99 ? 99 : notifications;
-		var color = notifications > 0 ? $.foregroundColor: $.disabledColor;
+		var color = notifications > 0 ? $.colorNotificationsActive: $.colorNotificationsInactive;
 
 		drawNotificationCount(dc, notifications, color);
 		drawNotificationIcon(dc, color);
@@ -22,7 +22,7 @@ class Notifications extends Ui.Drawable {
 		notifications = notifications.format("%02d");
 
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, $.smallFont, notifications, Graphics.TEXT_JUSTIFY_RIGHT);	
+        dc.drawText(x, y, $.fontSmall, notifications, Graphics.TEXT_JUSTIFY_RIGHT);	
 	}
 	
 	function drawNotificationIcon(dc, color) {
@@ -43,7 +43,7 @@ class Notifications extends Ui.Drawable {
         	[x, y + 8]]);
         
         dc.setPenWidth(1);
-        dc.setColor($.backgroundColor, Graphics.COLOR_TRANSPARENT);
+        dc.setColor($.colorBackground, Graphics.COLOR_TRANSPARENT);
         dc.drawPoint(x + 2, y + 4);
         dc.drawPoint(x + 5, y + 4);
         dc.drawPoint(x + 8, y + 4);

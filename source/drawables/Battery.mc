@@ -15,7 +15,7 @@ class Battery extends Ui.Drawable {
 	function drawIcon(dc) {
 		var x = 250, y = 80;
 		
-		dc.setColor(System.getSystemStats().charging ? $.batteryChargingColor : $.foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(System.getSystemStats().charging ? $.colorBatteryCharging : $.colorBattery, Graphics.COLOR_TRANSPARENT);
 		dc.fillPolygon([
 			[x - 13, y + 3],
 			[x - 12, y + 2],
@@ -37,7 +37,7 @@ class Battery extends Ui.Drawable {
 		var battery = System.getSystemStats().battery;
 		battery = battery.format("%d");
 		
-    	dc.setColor($.backgroundColor, Graphics.COLOR_TRANSPARENT);
-	    dc.drawText(x, y, $.smallFont, battery, Graphics.TEXT_JUSTIFY_CENTER);	
+    	dc.setColor($.colorBackground, Graphics.COLOR_TRANSPARENT);
+	    dc.drawText(x, y, $.fontSmall, battery, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

@@ -22,7 +22,7 @@ class Steps extends Ui.Drawable {
 		var progress = maxWidth * steps / stepGoal;
 		progress = progress > maxWidth ? maxWidth : progress;
 			
-		dc.setColor($.stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorStepsGoal, Graphics.COLOR_TRANSPARENT);
 		dc.drawLine(x, y, x + progress, y);
 		dc.fillRectangle(x + progress - 2, y - 2, 5, 5);	
 	}
@@ -34,15 +34,15 @@ class Steps extends Ui.Drawable {
 		steps = steps > 99999 ? 99999 : steps;  
 		steps = steps.format("%04d");
 		
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.normalFont, steps, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.setColor($.colorSteps, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontNormal, steps, Graphics.TEXT_JUSTIFY_CENTER);
 	}
 	
 	function drawIcons(dc) {
 		var x1 = $.SCREEN_WIDTH / 2 - 36, x2 = $.SCREEN_WIDTH / 2 + 37, y = 4;
 		
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x1, y, $.iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);		
-		dc.drawText(x2, y, $.iconFont, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);			
+		dc.setColor($.colorSteps, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x1, y, $.fontIcons, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);		
+		dc.drawText(x2, y, $.fontIcons, $.ICON_STEPS, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }

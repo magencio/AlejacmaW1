@@ -3,22 +3,38 @@
     <string id="AppName">AlejacmaW1</string>
 
 	<!-- Settings: Titles -->
-    <string id="BackgroundColorTitle">Color de Fondo</string>
-    <string id="ForegroundColorTitle">Color de Primer Plano</string>
-    <string id="DisabledColorTitle">Color de Deshabilitado</string>
-	<string id="LineColorTitle">Color de Linea</string>
-	<string id="OrnamentColorTitle">Color de Adorno</string>
-	<string id="AreaBorderColorTitle">Color de Borde de Area</string>
-	<string id="AreaBackgroundColorTitle">Color de Fondo de Area</string>
-	<string id="AreaForegroundColorTitle">Color de Primer Plano de Area</string>
-	<string id="AreaDisabledColorTitle">Color de Area Deshabilitado</string>
-	<string id="LowTemperatureColorTitle">Color de Temperatura Minima</string>
-	<string id="HighTemperatureColorTitle">Color de Temperatura Maxima</string>
-	<string id="StepsGoalColorTitle">Color de Objetivo de Pasos</string>
-	<string id="StepsBarColorTitle">Color de Barras de Pasos</string>
-	<string id="BatteryChargingColorTitle">Color de Batería Cargando</string>
-	<string id="HeartRateColorTitle">Color de Frencuencia Cardiaca</string>
-	<string id="AmPmColorTitle">Color de AM/PM</string>    
+    <string id="TitleColorBackground">Color > Fondo</string>
+	<string id="TitleColorAreaBorder">Color > Área > Borde</string>
+	<string id="TitleColorAreaBackground">Color > Área > Fondo</string>
+	<string id="TitleColorOrnaments">Color > Adornos</string>
+    <string id="TitleColorSteps">Color > Pasos</string>
+	<string id="TitleColorStepsLine">Color > Pasos > Línea</string>
+	<string id="TitleColorStepsGoal">Color > Pasos > Objetivo</string>
+	<string id="TitleColorStepsHistoryBar">Color > Pasos > Historia > Barra</string>
+	<string id="TitleColorStepsHistoryDay">Color > Pasos > Historia > Día</string>
+	<string id="TitleColorTemperatureCurrent">Color > Temperatura > Actual</string>
+	<string id="TitleColorTemperatureLow">Color > Temperatura > Mínima</string>
+	<string id="TitleColorTemperatureHigh">Color > Temperatura > Máxima</string>
+	<string id="TitleColorPrecipitationChance">Color > Probabilidad de Precipitaciones</string>
+	<string id="TitleColorWeatherCondition">Color > Condición del Tiempo</string>
+	<string id="TitleColorLocation">Color > Lugar</string>
+	<string id="TitleColorConnectionsActive">Color > Connections > Active</string>
+	<string id="TitleColorConnectionsInactive">Color > Connections > Inactive</string>	
+	<string id="TitleColorBattery">Color > Batería</string>
+	<string id="TitleColorBatteryCharging">Color > Batería > Cargando</string>	
+	<string id="TitleColorHeartRate">Color > Frecuencia Cardiaca</string>
+	<string id="TitleColorHeartRateTitle">Color > Frecuencia Cardiaca > Título</string>	
+	<string id="TitleColorMoveBarActive">Color > Barra de Movimiento > Activa</string>
+	<string id="TitleColorMoveBarInactive">Color > Barra de Movimiento > Inactiva</string>	
+	<string id="TitleColorDate">Color > Fecha</string>
+	<string id="TitleColorTime">Color > Hora</string>
+	<string id="TitleColorTimeAmPm">Color > Hora > AM/PM</string>
+	<string id="TitleColorAlarmActive">Color > Alarma > Activa</string>
+	<string id="TitleColorAlarmInactive">Color > Alarma > Inactiva</string>	
+	<string id="TitleColorNotificationsActive">Color > Notificaciones > Activas</string>
+	<string id="TitleColorNotificationsInactive">Color > Notificaciones > Inactivas</string>
+	<string id="TitleColorCalories">Color > Calorías</string>	
+	<string id="TitleColorCaloriesLine">Color > Calorías > Línea</string>
     
     <!-- Settings: Color names -->
     <string id="ColorWhite">Blanco</string>
@@ -93,8 +109,8 @@
     <string id="ConditionUnknown">Desconocido</string>
 
 	<!--  On-screen text: Titles -->
-    <string id="HeartRateTitle">FC</string>
+    <string id="TitleHeartRate">FC</string>
 
     <!--  On-screen text: Messages -->
-	<string id="NoWeatherData">Sin datos del tiempo</string>
+	<string id="TextNoWeatherData">Sin datos del tiempo</string>
 </strings>

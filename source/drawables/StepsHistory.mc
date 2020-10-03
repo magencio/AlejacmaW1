@@ -48,14 +48,14 @@ class StepsHistory extends Ui.Drawable {
 		
 		var now = Time.now();
 
-		dc.setColor($.foregroundColor, Graphics.COLOR_TRANSPARENT);
+		dc.setColor($.colorStepsHistoryDay, Graphics.COLOR_TRANSPARENT);
 		
 		for (var i = MAX_BARS - 1, textX = x; i >= 0; i -= 1, textX += BAR_WIDTH + PADDING) {
 			
 			var time = now.subtract(new Time.Duration(60 * 60 * 24 * i));
 		    var date = Gregorian.info(time, Time.FORMAT_LONG);	
 		    	    	
-			dc.drawText(textX, y, $.tinyFont, date.day.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
+			dc.drawText(textX, y, $.fontTiny, date.day.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 	}
 	
@@ -77,7 +77,7 @@ class StepsHistory extends Ui.Drawable {
 					var stepHeight = BAR_HEIGHT * history[i].steps / topSteps; 
 					
 					// Bar
-					var color = history[i].steps >= history[i].stepGoal ? $.stepsGoalColor : $.stepsBarColor;			
+					var color = history[i].steps >= history[i].stepGoal ? $.colorStepsGoal : $.colorStepsHistoryBar;			
 					dc.setColor(color, Graphics.COLOR_TRANSPARENT);
         			dc.fillRectangle(barX, y + $.BORDER + PADDING + BAR_HEIGHT - stepHeight, BAR_WIDTH, stepHeight);		
         			
@@ -86,7 +86,7 @@ class StepsHistory extends Ui.Drawable {
 						var goalHeight = BAR_HEIGHT * history[i].stepGoal / topSteps;
 						var goalY = y + $.BORDER + PADDING + BAR_HEIGHT - goalHeight;
 
-						dc.setColor($.stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+						dc.setColor($.colorStepsGoal, Graphics.COLOR_TRANSPARENT);
 						dc.drawLine(barX, goalY, barX + BAR_WIDTH - 1, goalY);
 					}				        						
 				}
@@ -100,7 +100,7 @@ class StepsHistory extends Ui.Drawable {
 		var activity = ActivityMonitor.getInfo();
 				
 		// Bar
-		var color = activity.steps >= activity.stepGoal ? $.stepsGoalColor : $.stepsBarColor;
+		var color = activity.steps >= activity.stepGoal ? $.colorStepsGoal : $.colorStepsHistoryBar;
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 
 		var stepHeight = BAR_HEIGHT * activity.steps / topSteps;
@@ -108,7 +108,7 @@ class StepsHistory extends Ui.Drawable {
 		
 		// Goal line
 		if (activity.steps < activity.stepGoal) {
-			dc.setColor($.stepsGoalColor, Graphics.COLOR_TRANSPARENT);
+			dc.setColor($.colorStepsGoal, Graphics.COLOR_TRANSPARENT);
 			var goalHeight = BAR_HEIGHT * activity.stepGoal / topSteps;
 			var goalY = y + $.BORDER + PADDING + BAR_HEIGHT - goalHeight;
 			dc.drawLine(x, goalY, x + BAR_WIDTH, goalY);

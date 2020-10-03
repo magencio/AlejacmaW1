@@ -1,20 +1,36 @@
 <properties>
 
-    <property id="BackgroundColor" type="number">0x000000</property>
-    <property id="ForegroundColor" type="number">0xFFFFFF</property>
-    <property id="DisabledColor" type="number">0xAAAAAA</property>
-	<property id="LineColor" type="number">0xFFFFFF</property>
-	<property id="OrnamentColor" type="number">0xFFFFFF</property>
-	<property id="AreaBorderColor" type="number">0xAAAAAA</property>
-	<property id="AreaBackgroundColor" type="number">0xFFFFFF</property>
-	<property id="AreaForegroundColor" type="number">0x000000</property>
-	<property id="AreaDisabledColor" type="number">0xAAAAAA</property>
-	<property id="LowTemperatureColor" type="number">0x0000FF</property>
-	<property id="HighTemperatureColor" type="number">0xFF5500</property>
-	<property id="StepsGoalColor" type="number">0xFF5500</property>
-	<property id="StepsBarColor" type="number">0xAAAAAA</property>
-	<property id="BatteryChargingColor" type="number">0x00FF00</property>
-	<property id="HeartRateColor" type="number">0xFF0000</property>
-	<property id="AmPmColor" type="number">0xAAAAAA</property>
-		
+    <property id="ColorBackground" type="number">0x000000</property>
+	<property id="ColorAreaBorder" type="number">0xAAAAAA</property>
+	<property id="ColorAreaBackground" type="number">0xFFFFFF</property>
+	<property id="ColorOrnaments" type="number">0xFFFFFF</property>	
+    <property id="ColorSteps" type="number">0xFFFFFF</property>
+    <property id="ColorStepsLine" type="number">0xFFFFFF</property>
+	<property id="ColorStepsGoal" type="number">0xFF5500</property>
+	<property id="ColorStepsHistoryBar" type="number">0xAAAAAA</property>
+	<property id="ColorStepsHistoryDay" type="number">0xFFFFFF</property>
+	<property id="ColorTemperatureCurrent" type="number">0x000000</property>
+	<property id="ColorTemperatureLow" type="number">0x0000FF</property>
+	<property id="ColorTemperatureHigh" type="number">0xFF5500</property>	
+	<property id="ColorPrecipitationChance" type="number">0x000000</property>
+	<property id="ColorWeatherCondition" type="number">0x000000</property>
+	<property id="ColorLocation" type="number">0x000000</property>
+    <property id="ColorConnectionsActive" type="number">0xFFFFFF</property>
+    <property id="ColorConnectionsInactive" type="number">0xAAAAAA</property>	
+	<property id="ColorBattery" type="number">0xFFFFFF</property>
+	<property id="ColorBatteryCharging" type="number">0x00FF00</property>
+	<property id="ColorHeartRate" type="number">0xFF0000</property>
+	<property id="ColorHeartRateTitle" type="number">0x000000</property>
+	<property id="ColorMoveBarActive" type="number">0xFFFFFF</property>
+	<property id="ColorMoveBarInactive" type="number">0xAAAAAA</property>
+	<property id="ColorDate" type="number">0x000000</property>
+	<property id="ColorTime" type="number">0x000000</property>
+	<property id="ColorTimeAmPm" type="number">0x000000</property>
+	<property id="ColorAlarmActive" type="number">0x000000</property>
+	<property id="ColorAlarmInactive" type="number">0xAAAAAA</property>
+    <property id="ColorNotificationsActive" type="number">0xFFFFFF</property>
+    <property id="ColorNotificationsInactive" type="number">0xAAAAAA</property>	
+	<property id="ColorCalories" type="number">0xFFFFFF</property>
+	<property id="ColorCaloriesLine" type="number">0xFFFFFF</property>
+    		
 </properties>

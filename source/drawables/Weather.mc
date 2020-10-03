@@ -17,7 +17,7 @@ class Weather extends Ui.Drawable {
 		}
 		
 		drawCurrentTemperature(dc);
-		drawLowTemperature(dc);
+		drawTemperatureLow(dc);
 		drawHighTemperature(dc);
 		drawPrecipitationChance(dc);
 		drawWeatherCondition(dc);
@@ -27,28 +27,28 @@ class Weather extends Ui.Drawable {
 	function drawUnavailableWeather(dc) {
 		var x = $.SCREEN_WIDTH / 2, y= 57;
 		
-		var message = Ui.loadResource(Rez.Strings.NoWeatherData);
+		var message = Ui.loadResource(Rez.Strings.TextNoWeatherData);
 
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, message, Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.setColor($.colorWeatherCondition, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontSmall, message, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 	
 	function drawCurrentTemperature(dc) {
 		var x = 64, y = 37;
 
-		drawTemperature(dc, $.areaForegroundColor, x, y, Weather.getCurrentConditions().temperature);
+		drawTemperature(dc, $.colorTemperatureCurrent, x, y, Weather.getCurrentConditions().temperature);
 	}
 	
-	function drawLowTemperature(dc) {
+	function drawTemperatureLow(dc) {
 		var x = 116, y = 37;
 
-		drawTemperature(dc, $.lowTemperatureColor, x, y, Weather.getCurrentConditions().lowTemperature);
+		drawTemperature(dc, $.colorTemperatureLow, x, y, Weather.getCurrentConditions().lowTemperature);
 	}
 	
 	function drawHighTemperature(dc) {
 		var x = 168, y = 37;
 
-		drawTemperature(dc, $.highTemperatureColor, x, y, Weather.getCurrentConditions().highTemperature);
+		drawTemperature(dc, $.colorTemperatureHigh, x, y, Weather.getCurrentConditions().highTemperature);
 	}
 	
 	function drawTemperature(dc, color, x, y, temperature) {	
@@ -57,15 +57,15 @@ class Weather extends Ui.Drawable {
 		temperature = units.equals("F") ? temperature * 1.8 + 32 : temperature;
 		temperature = temperature.format("%d");
 
-		var temperatureWidth = dc.getTextWidthInPixels(temperature, $.smallFont);
+		var temperatureWidth = dc.getTextWidthInPixels(temperature, $.fontSmall);
 		var degreesWidth = 4;
-		var unitsWidth = dc.getTextWidthInPixels(units, $.smallFont);
+		var unitsWidth = dc.getTextWidthInPixels(units, $.fontSmall);
 		var width = temperatureWidth + 2 + degreesWidth + 2 + unitsWidth;
 
 		x = x - width / 2;
 
 		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, temperature, Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(x, y, $.fontSmall, temperature, Graphics.TEXT_JUSTIFY_LEFT);
 				
 		// Degree glyph (not available in any font under resources/fonts)
 		x = x + temperatureWidth + 2;
@@ -76,7 +76,7 @@ class Weather extends Ui.Drawable {
 		// Units
 		x = x + degreesWidth + 2;
 
-		dc.drawText(x, y, $.smallFont, units, Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(x, y, $.fontSmall, units, Graphics.TEXT_JUSTIFY_LEFT);
 	}
 	
 	function drawPrecipitationChance(dc) {
@@ -86,14 +86,14 @@ class Weather extends Ui.Drawable {
 		var precipitationChance = Weather.getCurrentConditions().precipitationChance;			
 		precipitationChance = precipitationChance.format("%d");
 	
-		var chanceWidth = dc.getTextWidthInPixels(precipitationChance, $.smallFont);
+		var chanceWidth = dc.getTextWidthInPixels(precipitationChance, $.fontSmall);
 		var percentageWidth = 14;
 		var width = chanceWidth + 2 + percentageWidth;
 		
 		x = x - width / 2;
 
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, precipitationChance, Graphics.TEXT_JUSTIFY_LEFT);
+		dc.setColor($.colorPrecipitationChance, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontSmall, precipitationChance, Graphics.TEXT_JUSTIFY_LEFT);
 
 		// Percentage glyph (not available in any font under resources/fonts)
 		x = x + chanceWidth + 2;
@@ -109,8 +109,8 @@ class Weather extends Ui.Drawable {
 		var condition = Weather.getCurrentConditions().condition;		
 		condition = Ui.loadResource($.CONDITIONS[condition]);
 
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, condition, Graphics.TEXT_JUSTIFY_CENTER);	
+		dc.setColor($.colorWeatherCondition, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontSmall, condition, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 		
 	function drawLocation(dc) {
@@ -124,7 +124,7 @@ class Weather extends Ui.Drawable {
 		var comma = observationLocationName.find(",");
 		observationLocationName = observationLocationName.substring(0, comma == null || comma > 14 ? 14 : comma);
 
-		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(x, y, $.smallFont, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			
+		dc.setColor($.colorLocation, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(x, y, $.fontSmall, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			
 	}
 }
