@@ -114,7 +114,7 @@ class Weather extends Ui.Drawable {
 	}
 		
 	function drawLocation(dc) {
-		var x = $.SCREEN_WIDTH / 2 + 17, y = 76;
+		var x = $.SCREEN_WIDTH / 2 + 24, y = 76;
 
 		// Draw location name e.g. "Leganés, España" will look like "LEGANES".
 		// As the font by default doesn't support Spanish accents, I've modified the
@@ -122,7 +122,7 @@ class Weather extends Ui.Drawable {
 		var observationLocationName = Weather.getCurrentConditions().observationLocationName;		
 		observationLocationName = observationLocationName == null ? "--------" : observationLocationName;
 		var comma = observationLocationName.find(",");
-		observationLocationName = observationLocationName.substring(0, comma == null || comma > 12 ? 12 : comma);
+		observationLocationName = observationLocationName.substring(0, comma == null || comma > 14 ? 14 : comma);
 
 		dc.setColor($.areaForegroundColor, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(x, y, $.smallFont, observationLocationName, Graphics.TEXT_JUSTIFY_CENTER);			

@@ -42,7 +42,9 @@ class Background extends WatchUi.Drawable {
 			[x + $.SCREEN_WIDTH, y],
 			[x + $.SCREEN_WIDTH, y + 44],
 			[x + $.SCREEN_WIDTH - 45, y + 44],
-			[x + $.SCREEN_WIDTH - 64, y + 63],
+			[x + $.SCREEN_WIDTH - 48, y + 47],
+			[x + $.SCREEN_WIDTH - 48, y + 59],
+			[x + $.SCREEN_WIDTH - 52, y + 63],
 			[x + 98, y + 63],			
 			[x + 79, y + 44],
 			[x, y + 44]]);
@@ -52,8 +54,10 @@ class Background extends WatchUi.Drawable {
 			[x, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y - $.BORDER + 44],
-			[x + $.SCREEN_WIDTH - 46, y - $.BORDER + 44],
-			[x + $.SCREEN_WIDTH - $.BORDER - 63, y - $.BORDER + 63],
+			[x + $.SCREEN_WIDTH - $.BORDER - 44, y - $.BORDER + 44],
+			[x + $.SCREEN_WIDTH - $.BORDER - 48, y - $.BORDER + 48],
+			[x + $.SCREEN_WIDTH - $.BORDER - 48, y - $.BORDER + 60],
+			[x + $.SCREEN_WIDTH - $.BORDER - 51, y - $.BORDER + 63],
 			[x + $.BORDER + 97, y - $.BORDER + 63],
 			[x + $.BORDER + 78, y - $.BORDER + 44],
 			[x, y - $.BORDER + 44]]);
@@ -189,9 +193,9 @@ class Background extends WatchUi.Drawable {
 			[x + 112, y],
 			[x + $.SCREEN_WIDTH, y],
 			[x + $.SCREEN_WIDTH, y + 69],
-			[x + 112, y + 69],
+			[x + 101, y + 69],
 			[x + 82, y + 50],
-			[x + 0, y + 50]]);
+			[x, y + 50]]);
 		
 		dc.setColor($.areaBackgroundColor, Graphics.COLOR_TRANSPARENT);		
 		dc.fillPolygon([
@@ -200,7 +204,7 @@ class Background extends WatchUi.Drawable {
 			[x + 113, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y + $.BORDER],
 			[x + $.SCREEN_WIDTH, y - $.BORDER + 69],
-			[x + 113, y - $.BORDER + 69],
+			[x + 102, y - $.BORDER + 69],
 			[x + 83, y - $.BORDER + 50],
 			[x, y - $.BORDER + 50]]);        
     }
