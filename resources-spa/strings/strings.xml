@@ -18,8 +18,8 @@
 	<string id="TitleColorPrecipitationChance">Color > Probabilidad de Precipitaciones</string>
 	<string id="TitleColorWeatherCondition">Color > Condición del Tiempo</string>
 	<string id="TitleColorLocation">Color > Lugar</string>
-	<string id="TitleColorConnectionsActive">Color > Connections > Active</string>
-	<string id="TitleColorConnectionsInactive">Color > Connections > Inactive</string>	
+	<string id="TitleColorConnectionsActive">Color > Conexiones > Activas</string>
+	<string id="TitleColorConnectionsInactive">Color > Conexiones > Inactivas</string>	
 	<string id="TitleColorBattery">Color > Batería</string>
 	<string id="TitleColorBatteryCharging">Color > Batería > Cargando</string>	
 	<string id="TitleColorHeartRate">Color > Frecuencia Cardiaca</string>
