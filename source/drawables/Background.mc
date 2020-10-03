@@ -71,27 +71,27 @@ class Background extends WatchUi.Drawable {
 			[x + 84, y],
 			[x + $.SCREEN_WIDTH, y],
 			[x + $.SCREEN_WIDTH, y + 3],
-			[x + 88, y + 3]]);
+			[x + 87, y + 3]]);
 		dc.fillPolygon([
 			[x + 76, y],
 			[x + 81, y],
 			[x + 85, y + 3],
-			[x + 80, y + 3]]);
+			[x + 79, y + 3]]);
 		dc.fillPolygon([
 			[x + 66, y],
 			[x + 73, y],
 			[x + 77, y + 3],
-			[x + 70, y + 3]]);
+			[x + 69, y + 3]]);
 		dc.fillPolygon([
 			[x + 54, y],
 			[x + 63, y],
 			[x + 67, y + 3],
-			[x + 58, y + 3]]);
+			[x + 57, y + 3]]);
 		dc.fillPolygon([
 			[x + 37, y],
 			[x + 51, y],
 			[x + 55, y + 3],
-			[x + 41, y + 3]]);
+			[x + 40, y + 3]]);
 		dc.fillPolygon([
 			[x, y],
 			[x + 34, y],
