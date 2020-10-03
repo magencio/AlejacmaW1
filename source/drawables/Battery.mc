@@ -37,7 +37,7 @@ class Battery extends Ui.Drawable {
 		var battery = System.getSystemStats().battery;
 		battery = battery.format("%d");
 		
-    	dc.setColor($.colorBackground, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor($.colorBatteryPercentage, Graphics.COLOR_TRANSPARENT);
 	    dc.drawText(x, y, $.fontSmall, battery, Graphics.TEXT_JUSTIFY_CENTER);	
 	}
 }

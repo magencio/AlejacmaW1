@@ -21,6 +21,7 @@
 	<string id="TitleColorConnectionsActive">Color > Conexiones > Activas</string>
 	<string id="TitleColorConnectionsInactive">Color > Conexiones > Inactivas</string>	
 	<string id="TitleColorBattery">Color > Batería</string>
+	<string id="TitleColorBatteryPercentage">Color > Batería > Porcentaje</string>	
 	<string id="TitleColorBatteryCharging">Color > Batería > Cargando</string>	
 	<string id="TitleColorHeartRate">Color > Frecuencia Cardiaca</string>
 	<string id="TitleColorHeartRateTitle">Color > Frecuencia Cardiaca > Título</string>	

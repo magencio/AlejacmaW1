@@ -18,6 +18,7 @@
     <property id="ColorConnectionsActive" type="number">0xFFFFFF</property>
     <property id="ColorConnectionsInactive" type="number">0xAAAAAA</property>	
 	<property id="ColorBattery" type="number">0xFFFFFF</property>
+	<property id="ColorBatteryPercentage" type="number">0x000000</property>
 	<property id="ColorBatteryCharging" type="number">0x00FF00</property>
 	<property id="ColorHeartRate" type="number">0xFF0000</property>
 	<property id="ColorHeartRateTitle" type="number">0x000000</property>

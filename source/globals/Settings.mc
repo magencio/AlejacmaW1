@@ -18,6 +18,7 @@ var colorLocation;
 var colorConnectionsActive;
 var colorConnectionsInactive;
 var colorBattery;
+var colorBatteryPercentage;
 var colorBatteryCharging;
 var colorHeartRate;
 var colorHeartRateTitle;
@@ -52,6 +53,7 @@ function updateSettings() {
     $.colorConnectionsActive = Application.getApp().getProperty("ColorConnectionsActive");
     $.colorConnectionsInactive = Application.getApp().getProperty("ColorConnectionsInactive");	
 	$.colorBattery = Application.getApp().getProperty("ColorBattery");
+	$.colorBatteryPercentage = Application.getApp().getProperty("ColorBatteryPercentage");
 	$.colorBatteryCharging = Application.getApp().getProperty("ColorBatteryCharging");
 	$.colorHeartRate = Application.getApp().getProperty("ColorHeartRate");
 	$.colorHeartRateTitle = Application.getApp().getProperty("ColorHeartRateTitle");	
